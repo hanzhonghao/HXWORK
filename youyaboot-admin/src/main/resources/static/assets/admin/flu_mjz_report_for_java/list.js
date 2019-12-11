@@ -42,6 +42,7 @@
     //表格每一列配置
     var COLS = [[
         {type: "checkbox", /*fixed:"left",*/ width:50},//全选
+        {title: '编号', type:'numbers',align:"center",minWidth:100 },
         {field: 'p900', title: 'p900', minWidth:100, align:"center",sort:true},
         {field: 'p6891', title: 'p6891', minWidth:100, align:"center",sort:true},
         {field: 'p686', title: 'p686', minWidth:100, align:"center",sort:true},

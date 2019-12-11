@@ -1428,7 +1428,7 @@
         ,decode(p1,'自费',a.p7508,0) p7512
         ,'2'  p8508
         ,'' p8509
-        from  flu_mzj_charge a inner  join FLU_MZDATA b on a.admid=b.admid
+        from  flu_mzj_charge a inner join FLU_MZDATA b on a.admid=b.admid
         where substr(b.admdat,1,10)>=to_char(sysdate-3,'yyyy-mm-dd')
         <if test="limit != null"> LIMIT <if test="start != null">#{start},</if>#{limit} </if>
     </select>
