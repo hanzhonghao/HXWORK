@@ -12,7 +12,11 @@ import java.math.*;
 * 欢迎加入官方QQ群:648595928
 */
 
-public interface FluMjzReportForJavaService extends ICommonService<FluMjzReportForJava,String>{
+public interface FluMjzReportForJavaService extends ICommonService<FluMjzReportForJava,Long>{
 
+    List<FluMjzReportForJava> getList(Map<String, Object> query);
 
+    Boolean setList(List<FluMjzReportForJava> list);
+
+    List<FluMjzReportForJava> getModelListFromDB(Map<String, Object> query);
 }

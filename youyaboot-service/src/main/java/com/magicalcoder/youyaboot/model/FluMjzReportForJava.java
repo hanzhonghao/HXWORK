@@ -13,45 +13,46 @@ import lombok.Data;
 */
 @Data
 public class FluMjzReportForJava implements Serializable{
-
-    private String p900;//p900
-    private String p6891;//p6891
-    private String p686;//p686
-    private String p800;//p800
-    private String p7501;//p7501
-    private String p7502;//p7502
-    private String p4;//p4
+    private int numbers;
+    private Long id;//ID
+    private String p900;//P900
+    private String p6891;//P6891
+    private String p686;//P686
+    private String p800;//P800
+    private String p7501;//P7501
+    private String p7502;//P7502
+    private String p4;//P4
     private String p5;//P5
     private String p6;//P6
     private String p7;//P7
     private String p7503;//P7503
-    private String p13;//p13
-    private String p7504;//p7504
-    private String p7505;//p7505
-    private String p7506;//p7506
-    private String p7507;//p7507
-    private String p321;//p321
-    private String p322;//p322
-    private String p324;//p324
-    private String p325;//p325
-    private String p327;//p327
-    private String p328;//p328
-    private String p3291;//p3291
-    private String p3292;//p3292
-    private String p3294;//p3294
-    private String p3295;//p3295
-    private String p3297;//p3297
-    private String p3298;//p3298
-    private String p3281;//p3281
-    private String p3282;//p3282
-    private String p3284;//p3284
-    private String p3285;//p3285
-    private String p3287;//p3287
-    private String p3288;//p3288
-    private String p3271;//p3271
-    private String p3272;//p3272
-    private String p3274;//p3274
-    private String p3275;//p3275
+    private String p13;//P13
+    private String p7504;//P7504
+    private String p7505;//P7505
+    private String p7506;//P7506
+    private String p7507;//P7507
+    private String p321;//P321
+    private String p322;//P322
+    private String p324;//P324
+    private String p325;//P325
+    private String p327;//P327
+    private String p328;//P328
+    private String p3291;//P3291
+    private String p3292;//P3292
+    private String p3294;//P3294
+    private String p3295;//P3295
+    private String p3297;//P3297
+    private String p3298;//P3298
+    private String p3281;//P3281
+    private String p3282;//P3282
+    private String p3284;//P3284
+    private String p3285;//P3285
+    private String p3287;//P3287
+    private String p3288;//P3288
+    private String p3271;//P3271
+    private String p3272;//P3272
+    private String p3274;//P3274
+    private String p3275;//P3275
     private String p6911;//P6911
     private String p6912;//P6912
     private String p6913;//P6913
@@ -68,15 +69,22 @@ public class FluMjzReportForJava implements Serializable{
     private String p6924;//P6924
     private String p6925;//P6925
     private String p1;//P1
-    private String p7508;//p7508
-    private String p7509;//p7509
-    private String p7510;//p7510
-    private String p7511;//p7511
-    private String p7512;//p7512
-    private String p8508;//p8508
-    private String p8509;//p8509
+    private String p7508;//P7508
+    private String p7509;//P7509
+    private String p7510;//P7510
+    private String p7511;//P7511
+    private String p7512;//P7512
+    private String p8508;//P8508
+    private String p8509;//P8509
 
-    
+
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
+
     public String getP900(){
         return p900;
     }

@@ -10,44 +10,45 @@
 <mapper namespace="com.magicalcoder.youyaboot.service.flumjzreportforjava.mapper.FluMjzReportForJavaMapper">
     <!-- FluMjzReportForJava -->
     <resultMap id="resultMap" type="FluMjzReportForJava">
-        <id column="p7502" property="p7502"/>
-        <result column="p900" property="p900" />
-        <result column="p6891" property="p6891" />
-        <result column="p686" property="p686" />
-        <result column="p800" property="p800" />
-        <result column="p7501" property="p7501" />
-        <result column="p4" property="p4" />
+        <id column="ID" property="id"/>
+        <result column="P900" property="p900" />
+        <result column="P6891" property="p6891" />
+        <result column="P686" property="p686" />
+        <result column="P800" property="p800" />
+        <result column="P7501" property="p7501" />
+        <result column="P7502" property="p7502" />
+        <result column="P4" property="p4" />
         <result column="P5" property="p5" />
         <result column="P6" property="p6" />
         <result column="P7" property="p7" />
         <result column="P7503" property="p7503" />
-        <result column="p13" property="p13" />
-        <result column="p7504" property="p7504" />
-        <result column="p7505" property="p7505" />
-        <result column="p7506" property="p7506" />
-        <result column="p7507" property="p7507" />
-        <result column="p321" property="p321" />
-        <result column="p322" property="p322" />
-        <result column="p324" property="p324" />
-        <result column="p325" property="p325" />
-        <result column="p327" property="p327" />
-        <result column="p328" property="p328" />
-        <result column="p3291" property="p3291" />
-        <result column="p3292" property="p3292" />
-        <result column="p3294" property="p3294" />
-        <result column="p3295" property="p3295" />
-        <result column="p3297" property="p3297" />
-        <result column="p3298" property="p3298" />
-        <result column="p3281" property="p3281" />
-        <result column="p3282" property="p3282" />
-        <result column="p3284" property="p3284" />
-        <result column="p3285" property="p3285" />
-        <result column="p3287" property="p3287" />
-        <result column="p3288" property="p3288" />
-        <result column="p3271" property="p3271" />
-        <result column="p3272" property="p3272" />
-        <result column="p3274" property="p3274" />
-        <result column="p3275" property="p3275" />
+        <result column="P13" property="p13" />
+        <result column="P7504" property="p7504" />
+        <result column="P7505" property="p7505" />
+        <result column="P7506" property="p7506" />
+        <result column="P7507" property="p7507" />
+        <result column="P321" property="p321" />
+        <result column="P322" property="p322" />
+        <result column="P324" property="p324" />
+        <result column="P325" property="p325" />
+        <result column="P327" property="p327" />
+        <result column="P328" property="p328" />
+        <result column="P3291" property="p3291" />
+        <result column="P3292" property="p3292" />
+        <result column="P3294" property="p3294" />
+        <result column="P3295" property="p3295" />
+        <result column="P3297" property="p3297" />
+        <result column="P3298" property="p3298" />
+        <result column="P3281" property="p3281" />
+        <result column="P3282" property="p3282" />
+        <result column="P3284" property="p3284" />
+        <result column="P3285" property="p3285" />
+        <result column="P3287" property="p3287" />
+        <result column="P3288" property="p3288" />
+        <result column="P3271" property="p3271" />
+        <result column="P3272" property="p3272" />
+        <result column="P3274" property="p3274" />
+        <result column="P3275" property="p3275" />
         <result column="P6911" property="p6911" />
         <result column="P6912" property="p6912" />
         <result column="P6913" property="p6913" />
@@ -64,13 +65,13 @@
         <result column="P6924" property="p6924" />
         <result column="P6925" property="p6925" />
         <result column="P1" property="p1" />
-        <result column="p7508" property="p7508" />
-        <result column="p7509" property="p7509" />
-        <result column="p7510" property="p7510" />
-        <result column="p7511" property="p7511" />
-        <result column="p7512" property="p7512" />
-        <result column="p8508" property="p8508" />
-        <result column="p8509" property="p8509" />
+        <result column="P7508" property="p7508" />
+        <result column="P7509" property="p7509" />
+        <result column="P7510" property="p7510" />
+        <result column="P7511" property="p7511" />
+        <result column="P7512" property="p7512" />
+        <result column="P8508" property="p8508" />
+        <result column="P8509" property="p8509" />
     </resultMap>
     <!-- 查询单个实体 -->
     <select id="getModel" parameterType="hashmap" resultMap="resultMap">
@@ -95,7 +96,7 @@
         <include refid="pageStart"/>
         SELECT  <choose><when test="NotIgnore_!=null and NotIgnore_"><include refid="selectSqlNotIgnoreModel"/> </when><otherwise><include refid="selectSqlIgnoreModel"/></otherwise></choose>
         <include refid="pageParam"/>
-        FROM  <include refid="tableSql"/>  WHERE  "p7502" IN
+        FROM  <include refid="tableSql"/>  WHERE  "ID" IN
         <foreach item="id" index="index" collection="idList" open="(" separator="," close=")">#{id}</foreach>
         <include refid="orderGroupLimit"/>
         <include refid="pageEnd"/>
@@ -105,25 +106,25 @@
         SELECT count(1)  FROM  <include refid="tableSql"/>  WHERE 1=1 <include refid="whereSqlModel"/> <include refid="orderGroupLimit"/>
     </select>
     <!-- 插入单个实体 遇到入参null转换成数据库NULL-->
-    <insert id="insertModel" parameterType="FluMjzReportForJava"  useGeneratedKeys="true" keyProperty="p7502" >
-        <selectKey resultType="string" order="BEFORE" keyProperty="p7502">SELECT <choose><when test="p7502==null"> <include refid="sequenceNextValSql"/> </when><otherwise> #{p7502} </otherwise></choose>FROM DUAL</selectKey>
+    <insert id="insertModel" parameterType="FluMjzReportForJava"  useGeneratedKeys="true" keyProperty="id" >
+        <selectKey resultType="long" order="BEFORE" keyProperty="id">SELECT <choose><when test="id==null"> <include refid="sequenceNextValSql"/> </when><otherwise> #{id} </otherwise></choose>FROM DUAL</selectKey>
         INSERT into <include refid="tableSql"/> (<include refid="douFieldSql"/>) values(<include refid="douValueSql"/>)
     </insert>
     <!-- 替换单个实体 如果没有则插入 遇到入参null转换成数据库NULL-->
-    <insert id="replaceModel" parameterType="FluMjzReportForJava"  useGeneratedKeys="true" keyProperty="p7502" >
+    <insert id="replaceModel" parameterType="FluMjzReportForJava"  useGeneratedKeys="true" keyProperty="id" >
         <!-- 很抱歉 oracle 没有像mysql replace into 这样 的语句-->
     </insert>
     <!-- 插入单个实体 遇到入参null转换成数据库默认值-->
-    <insert id="insertModelWithoutNull" parameterType="FluMjzReportForJava"  useGeneratedKeys="true" keyProperty="p7502" >
-        <selectKey resultType="string" order="BEFORE" keyProperty="p7502">SELECT <choose><when test="p7502==null"> <include refid="sequenceNextValSql"/> </when><otherwise> #{p7502} </otherwise></choose>FROM DUAL</selectKey>
+    <insert id="insertModelWithoutNull" parameterType="FluMjzReportForJava"  useGeneratedKeys="true" keyProperty="id" >
+        <selectKey resultType="long" order="BEFORE" keyProperty="id">SELECT <choose><when test="id==null"> <include refid="sequenceNextValSql"/> </when><otherwise> #{id} </otherwise></choose>FROM DUAL</selectKey>
         INSERT into <include refid="tableSql"/> (<include refid="douFieldWithoutNullSql"/>) values(<include refid="douValueWithoutNullSql"/>)
     </insert>
     <!-- 替换单个实体 如果没有则插入 遇到入参null转换成数据库默认值-->
-    <insert id="replaceModelWithoutNull" parameterType="FluMjzReportForJava"  useGeneratedKeys="true" keyProperty="p7502" >
+    <insert id="replaceModelWithoutNull" parameterType="FluMjzReportForJava"  useGeneratedKeys="true" keyProperty="id" >
         <!-- 很抱歉 oracle 没有像mysql replace into 这样 的语句-->
     </insert>
     <!-- 批量插入一组实体 -->
-    <insert id="batchInsertModel" parameterType="java.util.List"   useGeneratedKeys="false" keyProperty="p7502" >
+    <insert id="batchInsertModel" parameterType="java.util.List"   useGeneratedKeys="false" keyProperty="id" >
         INSERT all
         <foreach collection="list" item="item" index="index" open="" close="" separator="">
             into <include refid="tableSql"/> (<include refid="batchDouFieldSql"/>) values (<include refid="batchDouValueSql"/>)
@@ -131,17 +132,17 @@
         SELECT 1 FROM DUAL
     </insert>
     <!-- 批量替换一组实体 -->
-    <insert id="batchReplaceModel" parameterType="java.util.List"  useGeneratedKeys="false" keyProperty="p7502" >
+    <insert id="batchReplaceModel" parameterType="java.util.List"  useGeneratedKeys="false" keyProperty="id" >
         <!-- 很抱歉 oracle 没有像mysql replace into 这样 的语句-->
     </insert>
-    <insert id="batchInsertModelWithoutNull" parameterType="java.util.List"   useGeneratedKeys="false" keyProperty="p7502" >
+    <insert id="batchInsertModelWithoutNull" parameterType="java.util.List"   useGeneratedKeys="false" keyProperty="id" >
         INSERT all
         <foreach collection="list" item="item" index="index" open="" close="" separator="">
             into <include refid="tableSql"/> (<include refid="batchDouFieldWithoutNullSql"/>) values (<include refid="batchDouValueWithoutNullSql"/>)
         </foreach>
         SELECT 1 FROM DUAL
     </insert>
-    <insert id="batchReplaceModelWithoutNull" parameterType="java.util.List"  useGeneratedKeys="false" keyProperty="p7502" >
+    <insert id="batchReplaceModelWithoutNull" parameterType="java.util.List"  useGeneratedKeys="false" keyProperty="id" >
         <!-- 很抱歉 oracle 没有像mysql replace into 这样 的语句-->
     </insert>
 
@@ -161,7 +162,7 @@
 
     <!-- 批量删除实体 in 根据主键-->
     <delete id="deleteModelByIds" parameterType="java.util.Set">
-        DELETE FROM <include refid="tableSql"/> WHERE "p7502" IN <foreach item="id" index="index" collection="collection" open="(" separator="," close=")">#{id}</foreach>
+        DELETE FROM <include refid="tableSql"/> WHERE "ID" IN <foreach item="id" index="index" collection="collection" open="(" separator="," close=")">#{id}</foreach>
     </delete>
     <!-- 更新一个实体 -->
     <update id="updateModel" parameterType="FluMjzReportForJava">
@@ -185,44 +186,45 @@
     <!-- sql 片段 -->
    <sql id="selectSqlIgnoreModel">
         <trim suffixOverrides=",">
-            <if test="p900Ignore_ == null or !p900Ignore_">"p900",</if>
-            <if test="p6891Ignore_ == null or !p6891Ignore_">"p6891",</if>
-            <if test="p686Ignore_ == null or !p686Ignore_">"p686",</if>
-            <if test="p800Ignore_ == null or !p800Ignore_">"p800",</if>
-            <if test="p7501Ignore_ == null or !p7501Ignore_">"p7501",</if>
-            <if test="p7502Ignore_ == null or !p7502Ignore_">"p7502",</if>
-            <if test="p4Ignore_ == null or !p4Ignore_">"p4",</if>
+            <if test="idIgnore_ == null or !idIgnore_">"ID",</if>
+            <if test="p900Ignore_ == null or !p900Ignore_">"P900",</if>
+            <if test="p6891Ignore_ == null or !p6891Ignore_">"P6891",</if>
+            <if test="p686Ignore_ == null or !p686Ignore_">"P686",</if>
+            <if test="p800Ignore_ == null or !p800Ignore_">"P800",</if>
+            <if test="p7501Ignore_ == null or !p7501Ignore_">"P7501",</if>
+            <if test="p7502Ignore_ == null or !p7502Ignore_">"P7502",</if>
+            <if test="p4Ignore_ == null or !p4Ignore_">"P4",</if>
             <if test="p5Ignore_ == null or !p5Ignore_">"P5",</if>
             <if test="p6Ignore_ == null or !p6Ignore_">"P6",</if>
             <if test="p7Ignore_ == null or !p7Ignore_">"P7",</if>
             <if test="p7503Ignore_ == null or !p7503Ignore_">"P7503",</if>
-            <if test="p13Ignore_ == null or !p13Ignore_">"p13",</if>
-            <if test="p7504Ignore_ == null or !p7504Ignore_">"p7504",</if>
-            <if test="p7505Ignore_ == null or !p7505Ignore_">"p7505",</if>
-            <if test="p7506Ignore_ == null or !p7506Ignore_">"p7506",</if>
-            <if test="p7507Ignore_ == null or !p7507Ignore_">"p7507",</if>
-            <if test="p321Ignore_ == null or !p321Ignore_">"p321",</if>
-            <if test="p322Ignore_ == null or !p322Ignore_">"p322",</if>
-            <if test="p324Ignore_ == null or !p324Ignore_">"p324",</if>
-            <if test="p325Ignore_ == null or !p325Ignore_">"p325",</if>
-            <if test="p327Ignore_ == null or !p327Ignore_">"p327",</if>
-            <if test="p328Ignore_ == null or !p328Ignore_">"p328",</if>
-            <if test="p3291Ignore_ == null or !p3291Ignore_">"p3291",</if>
-            <if test="p3292Ignore_ == null or !p3292Ignore_">"p3292",</if>
-            <if test="p3294Ignore_ == null or !p3294Ignore_">"p3294",</if>
-            <if test="p3295Ignore_ == null or !p3295Ignore_">"p3295",</if>
-            <if test="p3297Ignore_ == null or !p3297Ignore_">"p3297",</if>
-            <if test="p3298Ignore_ == null or !p3298Ignore_">"p3298",</if>
-            <if test="p3281Ignore_ == null or !p3281Ignore_">"p3281",</if>
-            <if test="p3282Ignore_ == null or !p3282Ignore_">"p3282",</if>
-            <if test="p3284Ignore_ == null or !p3284Ignore_">"p3284",</if>
-            <if test="p3285Ignore_ == null or !p3285Ignore_">"p3285",</if>
-            <if test="p3287Ignore_ == null or !p3287Ignore_">"p3287",</if>
-            <if test="p3288Ignore_ == null or !p3288Ignore_">"p3288",</if>
-            <if test="p3271Ignore_ == null or !p3271Ignore_">"p3271",</if>
-            <if test="p3272Ignore_ == null or !p3272Ignore_">"p3272",</if>
-            <if test="p3274Ignore_ == null or !p3274Ignore_">"p3274",</if>
-            <if test="p3275Ignore_ == null or !p3275Ignore_">"p3275",</if>
+            <if test="p13Ignore_ == null or !p13Ignore_">"P13",</if>
+            <if test="p7504Ignore_ == null or !p7504Ignore_">"P7504",</if>
+            <if test="p7505Ignore_ == null or !p7505Ignore_">"P7505",</if>
+            <if test="p7506Ignore_ == null or !p7506Ignore_">"P7506",</if>
+            <if test="p7507Ignore_ == null or !p7507Ignore_">"P7507",</if>
+            <if test="p321Ignore_ == null or !p321Ignore_">"P321",</if>
+            <if test="p322Ignore_ == null or !p322Ignore_">"P322",</if>
+            <if test="p324Ignore_ == null or !p324Ignore_">"P324",</if>
+            <if test="p325Ignore_ == null or !p325Ignore_">"P325",</if>
+            <if test="p327Ignore_ == null or !p327Ignore_">"P327",</if>
+            <if test="p328Ignore_ == null or !p328Ignore_">"P328",</if>
+            <if test="p3291Ignore_ == null or !p3291Ignore_">"P3291",</if>
+            <if test="p3292Ignore_ == null or !p3292Ignore_">"P3292",</if>
+            <if test="p3294Ignore_ == null or !p3294Ignore_">"P3294",</if>
+            <if test="p3295Ignore_ == null or !p3295Ignore_">"P3295",</if>
+            <if test="p3297Ignore_ == null or !p3297Ignore_">"P3297",</if>
+            <if test="p3298Ignore_ == null or !p3298Ignore_">"P3298",</if>
+            <if test="p3281Ignore_ == null or !p3281Ignore_">"P3281",</if>
+            <if test="p3282Ignore_ == null or !p3282Ignore_">"P3282",</if>
+            <if test="p3284Ignore_ == null or !p3284Ignore_">"P3284",</if>
+            <if test="p3285Ignore_ == null or !p3285Ignore_">"P3285",</if>
+            <if test="p3287Ignore_ == null or !p3287Ignore_">"P3287",</if>
+            <if test="p3288Ignore_ == null or !p3288Ignore_">"P3288",</if>
+            <if test="p3271Ignore_ == null or !p3271Ignore_">"P3271",</if>
+            <if test="p3272Ignore_ == null or !p3272Ignore_">"P3272",</if>
+            <if test="p3274Ignore_ == null or !p3274Ignore_">"P3274",</if>
+            <if test="p3275Ignore_ == null or !p3275Ignore_">"P3275",</if>
             <if test="p6911Ignore_ == null or !p6911Ignore_">"P6911",</if>
             <if test="p6912Ignore_ == null or !p6912Ignore_">"P6912",</if>
             <if test="p6913Ignore_ == null or !p6913Ignore_">"P6913",</if>
@@ -239,55 +241,56 @@
             <if test="p6924Ignore_ == null or !p6924Ignore_">"P6924",</if>
             <if test="p6925Ignore_ == null or !p6925Ignore_">"P6925",</if>
             <if test="p1Ignore_ == null or !p1Ignore_">"P1",</if>
-            <if test="p7508Ignore_ == null or !p7508Ignore_">"p7508",</if>
-            <if test="p7509Ignore_ == null or !p7509Ignore_">"p7509",</if>
-            <if test="p7510Ignore_ == null or !p7510Ignore_">"p7510",</if>
-            <if test="p7511Ignore_ == null or !p7511Ignore_">"p7511",</if>
-            <if test="p7512Ignore_ == null or !p7512Ignore_">"p7512",</if>
-            <if test="p8508Ignore_ == null or !p8508Ignore_">"p8508",</if>
-            <if test="p8509Ignore_ == null or !p8509Ignore_">"p8509"</if>
+            <if test="p7508Ignore_ == null or !p7508Ignore_">"P7508",</if>
+            <if test="p7509Ignore_ == null or !p7509Ignore_">"P7509",</if>
+            <if test="p7510Ignore_ == null or !p7510Ignore_">"P7510",</if>
+            <if test="p7511Ignore_ == null or !p7511Ignore_">"P7511",</if>
+            <if test="p7512Ignore_ == null or !p7512Ignore_">"P7512",</if>
+            <if test="p8508Ignore_ == null or !p8508Ignore_">"P8508",</if>
+            <if test="p8509Ignore_ == null or !p8509Ignore_">"P8509"</if>
         </trim>
     </sql>
     <sql id="selectSqlNotIgnoreModel">
         <trim suffixOverrides=",">
-         <if test="p900NotIgnore_ != null and p900NotIgnore_">"p900",</if>
-         <if test="p6891NotIgnore_ != null and p6891NotIgnore_">"p6891",</if>
-         <if test="p686NotIgnore_ != null and p686NotIgnore_">"p686",</if>
-         <if test="p800NotIgnore_ != null and p800NotIgnore_">"p800",</if>
-         <if test="p7501NotIgnore_ != null and p7501NotIgnore_">"p7501",</if>
-         <if test="p7502NotIgnore_ != null and p7502NotIgnore_">"p7502",</if>
-         <if test="p4NotIgnore_ != null and p4NotIgnore_">"p4",</if>
+         <if test="idNotIgnore_ != null and idNotIgnore_">"ID",</if>
+         <if test="p900NotIgnore_ != null and p900NotIgnore_">"P900",</if>
+         <if test="p6891NotIgnore_ != null and p6891NotIgnore_">"P6891",</if>
+         <if test="p686NotIgnore_ != null and p686NotIgnore_">"P686",</if>
+         <if test="p800NotIgnore_ != null and p800NotIgnore_">"P800",</if>
+         <if test="p7501NotIgnore_ != null and p7501NotIgnore_">"P7501",</if>
+         <if test="p7502NotIgnore_ != null and p7502NotIgnore_">"P7502",</if>
+         <if test="p4NotIgnore_ != null and p4NotIgnore_">"P4",</if>
          <if test="p5NotIgnore_ != null and p5NotIgnore_">"P5",</if>
          <if test="p6NotIgnore_ != null and p6NotIgnore_">"P6",</if>
          <if test="p7NotIgnore_ != null and p7NotIgnore_">"P7",</if>
          <if test="p7503NotIgnore_ != null and p7503NotIgnore_">"P7503",</if>
-         <if test="p13NotIgnore_ != null and p13NotIgnore_">"p13",</if>
-         <if test="p7504NotIgnore_ != null and p7504NotIgnore_">"p7504",</if>
-         <if test="p7505NotIgnore_ != null and p7505NotIgnore_">"p7505",</if>
-         <if test="p7506NotIgnore_ != null and p7506NotIgnore_">"p7506",</if>
-         <if test="p7507NotIgnore_ != null and p7507NotIgnore_">"p7507",</if>
-         <if test="p321NotIgnore_ != null and p321NotIgnore_">"p321",</if>
-         <if test="p322NotIgnore_ != null and p322NotIgnore_">"p322",</if>
-         <if test="p324NotIgnore_ != null and p324NotIgnore_">"p324",</if>
-         <if test="p325NotIgnore_ != null and p325NotIgnore_">"p325",</if>
-         <if test="p327NotIgnore_ != null and p327NotIgnore_">"p327",</if>
-         <if test="p328NotIgnore_ != null and p328NotIgnore_">"p328",</if>
-         <if test="p3291NotIgnore_ != null and p3291NotIgnore_">"p3291",</if>
-         <if test="p3292NotIgnore_ != null and p3292NotIgnore_">"p3292",</if>
-         <if test="p3294NotIgnore_ != null and p3294NotIgnore_">"p3294",</if>
-         <if test="p3295NotIgnore_ != null and p3295NotIgnore_">"p3295",</if>
-         <if test="p3297NotIgnore_ != null and p3297NotIgnore_">"p3297",</if>
-         <if test="p3298NotIgnore_ != null and p3298NotIgnore_">"p3298",</if>
-         <if test="p3281NotIgnore_ != null and p3281NotIgnore_">"p3281",</if>
-         <if test="p3282NotIgnore_ != null and p3282NotIgnore_">"p3282",</if>
-         <if test="p3284NotIgnore_ != null and p3284NotIgnore_">"p3284",</if>
-         <if test="p3285NotIgnore_ != null and p3285NotIgnore_">"p3285",</if>
-         <if test="p3287NotIgnore_ != null and p3287NotIgnore_">"p3287",</if>
-         <if test="p3288NotIgnore_ != null and p3288NotIgnore_">"p3288",</if>
-         <if test="p3271NotIgnore_ != null and p3271NotIgnore_">"p3271",</if>
-         <if test="p3272NotIgnore_ != null and p3272NotIgnore_">"p3272",</if>
-         <if test="p3274NotIgnore_ != null and p3274NotIgnore_">"p3274",</if>
-         <if test="p3275NotIgnore_ != null and p3275NotIgnore_">"p3275",</if>
+         <if test="p13NotIgnore_ != null and p13NotIgnore_">"P13",</if>
+         <if test="p7504NotIgnore_ != null and p7504NotIgnore_">"P7504",</if>
+         <if test="p7505NotIgnore_ != null and p7505NotIgnore_">"P7505",</if>
+         <if test="p7506NotIgnore_ != null and p7506NotIgnore_">"P7506",</if>
+         <if test="p7507NotIgnore_ != null and p7507NotIgnore_">"P7507",</if>
+         <if test="p321NotIgnore_ != null and p321NotIgnore_">"P321",</if>
+         <if test="p322NotIgnore_ != null and p322NotIgnore_">"P322",</if>
+         <if test="p324NotIgnore_ != null and p324NotIgnore_">"P324",</if>
+         <if test="p325NotIgnore_ != null and p325NotIgnore_">"P325",</if>
+         <if test="p327NotIgnore_ != null and p327NotIgnore_">"P327",</if>
+         <if test="p328NotIgnore_ != null and p328NotIgnore_">"P328",</if>
+         <if test="p3291NotIgnore_ != null and p3291NotIgnore_">"P3291",</if>
+         <if test="p3292NotIgnore_ != null and p3292NotIgnore_">"P3292",</if>
+         <if test="p3294NotIgnore_ != null and p3294NotIgnore_">"P3294",</if>
+         <if test="p3295NotIgnore_ != null and p3295NotIgnore_">"P3295",</if>
+         <if test="p3297NotIgnore_ != null and p3297NotIgnore_">"P3297",</if>
+         <if test="p3298NotIgnore_ != null and p3298NotIgnore_">"P3298",</if>
+         <if test="p3281NotIgnore_ != null and p3281NotIgnore_">"P3281",</if>
+         <if test="p3282NotIgnore_ != null and p3282NotIgnore_">"P3282",</if>
+         <if test="p3284NotIgnore_ != null and p3284NotIgnore_">"P3284",</if>
+         <if test="p3285NotIgnore_ != null and p3285NotIgnore_">"P3285",</if>
+         <if test="p3287NotIgnore_ != null and p3287NotIgnore_">"P3287",</if>
+         <if test="p3288NotIgnore_ != null and p3288NotIgnore_">"P3288",</if>
+         <if test="p3271NotIgnore_ != null and p3271NotIgnore_">"P3271",</if>
+         <if test="p3272NotIgnore_ != null and p3272NotIgnore_">"P3272",</if>
+         <if test="p3274NotIgnore_ != null and p3274NotIgnore_">"P3274",</if>
+         <if test="p3275NotIgnore_ != null and p3275NotIgnore_">"P3275",</if>
          <if test="p6911NotIgnore_ != null and p6911NotIgnore_">"P6911",</if>
          <if test="p6912NotIgnore_ != null and p6912NotIgnore_">"P6912",</if>
          <if test="p6913NotIgnore_ != null and p6913NotIgnore_">"P6913",</if>
@@ -304,28 +307,29 @@
          <if test="p6924NotIgnore_ != null and p6924NotIgnore_">"P6924",</if>
          <if test="p6925NotIgnore_ != null and p6925NotIgnore_">"P6925",</if>
          <if test="p1NotIgnore_ != null and p1NotIgnore_">"P1",</if>
-         <if test="p7508NotIgnore_ != null and p7508NotIgnore_">"p7508",</if>
-         <if test="p7509NotIgnore_ != null and p7509NotIgnore_">"p7509",</if>
-         <if test="p7510NotIgnore_ != null and p7510NotIgnore_">"p7510",</if>
-         <if test="p7511NotIgnore_ != null and p7511NotIgnore_">"p7511",</if>
-         <if test="p7512NotIgnore_ != null and p7512NotIgnore_">"p7512",</if>
-         <if test="p8508NotIgnore_ != null and p8508NotIgnore_">"p8508",</if>
-         <if test="p8509NotIgnore_ != null and p8509NotIgnore_">"p8509"</if>
+         <if test="p7508NotIgnore_ != null and p7508NotIgnore_">"P7508",</if>
+         <if test="p7509NotIgnore_ != null and p7509NotIgnore_">"P7509",</if>
+         <if test="p7510NotIgnore_ != null and p7510NotIgnore_">"P7510",</if>
+         <if test="p7511NotIgnore_ != null and p7511NotIgnore_">"P7511",</if>
+         <if test="p7512NotIgnore_ != null and p7512NotIgnore_">"P7512",</if>
+         <if test="p8508NotIgnore_ != null and p8508NotIgnore_">"P8508",</if>
+         <if test="p8509NotIgnore_ != null and p8509NotIgnore_">"P8509"</if>
         </trim>
     </sql>
     <sql id="douFieldSql">
         <trim suffixOverrides=",">
-"p900","p6891","p686","p800","p7501",            <if test="p7502!=null">"p7502",</if> "p4","P5","P6","P7","P7503","p13","p7504","p7505","p7506","p7507","p321","p322","p324","p325","p327","p328","p3291","p3292","p3294","p3295","p3297","p3298","p3281","p3282","p3284","p3285","p3287","p3288","p3271","p3272","p3274","p3275","P6911","P6912","P6913","P6914","P6915","P6916","P6917","P6918","P6919","P6920","P6921","P6922","P6923","P6924","P6925","P1","p7508","p7509","p7510","p7511","p7512","p8508","p8509",
+            <if test="id!=null">"ID",</if> "P900","P6891","P686","P800","P7501","P7502","P4","P5","P6","P7","P7503","P13","P7504","P7505","P7506","P7507","P321","P322","P324","P325","P327","P328","P3291","P3292","P3294","P3295","P3297","P3298","P3281","P3282","P3284","P3285","P3287","P3288","P3271","P3272","P3274","P3275","P6911","P6912","P6913","P6914","P6915","P6916","P6917","P6918","P6919","P6920","P6921","P6922","P6923","P6924","P6925","P1","P7508","P7509","P7510","P7511","P7512","P8508","P8509",
         </trim>
     </sql>
     <sql id="douValueSql">
         <trim suffixOverrides=",">
+                <choose><when test="id!=null">#{id},</when></choose>
                 <choose><when test="p900!=null">#{p900},</when><otherwise>NULL,</otherwise></choose>
                 <choose><when test="p6891!=null">#{p6891},</when><otherwise>NULL,</otherwise></choose>
                 <choose><when test="p686!=null">#{p686},</when><otherwise>NULL,</otherwise></choose>
                 <choose><when test="p800!=null">#{p800},</when><otherwise>NULL,</otherwise></choose>
                 <choose><when test="p7501!=null">#{p7501},</when><otherwise>NULL,</otherwise></choose>
-                <choose><when test="p7502!=null">#{p7502},</when></choose>
+                <choose><when test="p7502!=null">#{p7502},</when><otherwise>NULL,</otherwise></choose>
                 <choose><when test="p4!=null">#{p4},</when><otherwise>NULL,</otherwise></choose>
                 <choose><when test="p5!=null">#{p5},</when><otherwise>NULL,</otherwise></choose>
                 <choose><when test="p6!=null">#{p6},</when><otherwise>NULL,</otherwise></choose>
@@ -386,44 +390,45 @@
 
     <sql id="douFieldWithoutNullSql">
         <trim suffixOverrides=",">
-                <if test="p900!=null">"p900",</if>
-                <if test="p6891!=null">"p6891",</if>
-                <if test="p686!=null">"p686",</if>
-                <if test="p800!=null">"p800",</if>
-                <if test="p7501!=null">"p7501",</if>
-                <if test="p7502!=null">"p7502",</if>
-                <if test="p4!=null">"p4",</if>
+                <if test="id!=null">"ID",</if>
+                <if test="p900!=null">"P900",</if>
+                <if test="p6891!=null">"P6891",</if>
+                <if test="p686!=null">"P686",</if>
+                <if test="p800!=null">"P800",</if>
+                <if test="p7501!=null">"P7501",</if>
+                <if test="p7502!=null">"P7502",</if>
+                <if test="p4!=null">"P4",</if>
                 <if test="p5!=null">"P5",</if>
                 <if test="p6!=null">"P6",</if>
                 <if test="p7!=null">"P7",</if>
                 <if test="p7503!=null">"P7503",</if>
-                <if test="p13!=null">"p13",</if>
-                <if test="p7504!=null">"p7504",</if>
-                <if test="p7505!=null">"p7505",</if>
-                <if test="p7506!=null">"p7506",</if>
-                <if test="p7507!=null">"p7507",</if>
-                <if test="p321!=null">"p321",</if>
-                <if test="p322!=null">"p322",</if>
-                <if test="p324!=null">"p324",</if>
-                <if test="p325!=null">"p325",</if>
-                <if test="p327!=null">"p327",</if>
-                <if test="p328!=null">"p328",</if>
-                <if test="p3291!=null">"p3291",</if>
-                <if test="p3292!=null">"p3292",</if>
-                <if test="p3294!=null">"p3294",</if>
-                <if test="p3295!=null">"p3295",</if>
-                <if test="p3297!=null">"p3297",</if>
-                <if test="p3298!=null">"p3298",</if>
-                <if test="p3281!=null">"p3281",</if>
-                <if test="p3282!=null">"p3282",</if>
-                <if test="p3284!=null">"p3284",</if>
-                <if test="p3285!=null">"p3285",</if>
-                <if test="p3287!=null">"p3287",</if>
-                <if test="p3288!=null">"p3288",</if>
-                <if test="p3271!=null">"p3271",</if>
-                <if test="p3272!=null">"p3272",</if>
-                <if test="p3274!=null">"p3274",</if>
-                <if test="p3275!=null">"p3275",</if>
+                <if test="p13!=null">"P13",</if>
+                <if test="p7504!=null">"P7504",</if>
+                <if test="p7505!=null">"P7505",</if>
+                <if test="p7506!=null">"P7506",</if>
+                <if test="p7507!=null">"P7507",</if>
+                <if test="p321!=null">"P321",</if>
+                <if test="p322!=null">"P322",</if>
+                <if test="p324!=null">"P324",</if>
+                <if test="p325!=null">"P325",</if>
+                <if test="p327!=null">"P327",</if>
+                <if test="p328!=null">"P328",</if>
+                <if test="p3291!=null">"P3291",</if>
+                <if test="p3292!=null">"P3292",</if>
+                <if test="p3294!=null">"P3294",</if>
+                <if test="p3295!=null">"P3295",</if>
+                <if test="p3297!=null">"P3297",</if>
+                <if test="p3298!=null">"P3298",</if>
+                <if test="p3281!=null">"P3281",</if>
+                <if test="p3282!=null">"P3282",</if>
+                <if test="p3284!=null">"P3284",</if>
+                <if test="p3285!=null">"P3285",</if>
+                <if test="p3287!=null">"P3287",</if>
+                <if test="p3288!=null">"P3288",</if>
+                <if test="p3271!=null">"P3271",</if>
+                <if test="p3272!=null">"P3272",</if>
+                <if test="p3274!=null">"P3274",</if>
+                <if test="p3275!=null">"P3275",</if>
                 <if test="p6911!=null">"P6911",</if>
                 <if test="p6912!=null">"P6912",</if>
                 <if test="p6913!=null">"P6913",</if>
@@ -440,18 +445,19 @@
                 <if test="p6924!=null">"P6924",</if>
                 <if test="p6925!=null">"P6925",</if>
                 <if test="p1!=null">"P1",</if>
-                <if test="p7508!=null">"p7508",</if>
-                <if test="p7509!=null">"p7509",</if>
-                <if test="p7510!=null">"p7510",</if>
-                <if test="p7511!=null">"p7511",</if>
-                <if test="p7512!=null">"p7512",</if>
-                <if test="p8508!=null">"p8508",</if>
-                <if test="p8509!=null">"p8509",</if>
+                <if test="p7508!=null">"P7508",</if>
+                <if test="p7509!=null">"P7509",</if>
+                <if test="p7510!=null">"P7510",</if>
+                <if test="p7511!=null">"P7511",</if>
+                <if test="p7512!=null">"P7512",</if>
+                <if test="p8508!=null">"P8508",</if>
+                <if test="p8509!=null">"P8509",</if>
 
         </trim>
     </sql>
     <sql id="douValueWithoutNullSql">
         <trim suffixOverrides=",">
+                <choose><when test="id!=null">#{id},</when></choose>
                 <choose><when test="p900!=null">#{p900},</when></choose>
                 <choose><when test="p6891!=null">#{p6891},</when></choose>
                 <choose><when test="p686!=null">#{p686},</when></choose>
@@ -517,44 +523,45 @@
     </sql>
     <sql id="batchDouFieldSql">
         <trim suffixOverrides=",">
-                "p900",
-                "p6891",
-                "p686",
-                "p800",
-                "p7501",
-                "p7502",
-                "p4",
+                "ID",
+                "P900",
+                "P6891",
+                "P686",
+                "P800",
+                "P7501",
+                "P7502",
+                "P4",
                 "P5",
                 "P6",
                 "P7",
                 "P7503",
-                "p13",
-                "p7504",
-                "p7505",
-                "p7506",
-                "p7507",
-                "p321",
-                "p322",
-                "p324",
-                "p325",
-                "p327",
-                "p328",
-                "p3291",
-                "p3292",
-                "p3294",
-                "p3295",
-                "p3297",
-                "p3298",
-                "p3281",
-                "p3282",
-                "p3284",
-                "p3285",
-                "p3287",
-                "p3288",
-                "p3271",
-                "p3272",
-                "p3274",
-                "p3275",
+                "P13",
+                "P7504",
+                "P7505",
+                "P7506",
+                "P7507",
+                "P321",
+                "P322",
+                "P324",
+                "P325",
+                "P327",
+                "P328",
+                "P3291",
+                "P3292",
+                "P3294",
+                "P3295",
+                "P3297",
+                "P3298",
+                "P3281",
+                "P3282",
+                "P3284",
+                "P3285",
+                "P3287",
+                "P3288",
+                "P3271",
+                "P3272",
+                "P3274",
+                "P3275",
                 "P6911",
                 "P6912",
                 "P6913",
@@ -571,24 +578,25 @@
                 "P6924",
                 "P6925",
                 "P1",
-                "p7508",
-                "p7509",
-                "p7510",
-                "p7511",
-                "p7512",
-                "p8508",
-                "p8509",
+                "P7508",
+                "P7509",
+                "P7510",
+                "P7511",
+                "P7512",
+                "P8508",
+                "P8509",
 
         </trim>
     </sql>
     <sql id="batchDouValueSql">
         <trim suffixOverrides=",">
+                <choose><when test="item.id!=null">#{item.id}</when><otherwise><include refid="sequenceNextValSql"/></otherwise></choose>,
                 <choose><when test="item.p900!=null">#{item.p900}</when><otherwise> NULL </otherwise></choose>,
                 <choose><when test="item.p6891!=null">#{item.p6891}</when><otherwise> NULL </otherwise></choose>,
                 <choose><when test="item.p686!=null">#{item.p686}</when><otherwise> NULL </otherwise></choose>,
                 <choose><when test="item.p800!=null">#{item.p800}</when><otherwise> NULL </otherwise></choose>,
                 <choose><when test="item.p7501!=null">#{item.p7501}</when><otherwise> NULL </otherwise></choose>,
-                <choose><when test="item.p7502!=null">#{item.p7502}</when><otherwise><include refid="sequenceNextValSql"/></otherwise></choose>,
+                <choose><when test="item.p7502!=null">#{item.p7502}</when><otherwise> NULL </otherwise></choose>,
                 <choose><when test="item.p4!=null">#{item.p4}</when><otherwise> NULL </otherwise></choose>,
                 <choose><when test="item.p5!=null">#{item.p5}</when><otherwise> NULL </otherwise></choose>,
                 <choose><when test="item.p6!=null">#{item.p6}</when><otherwise> NULL </otherwise></choose>,
@@ -648,44 +656,45 @@
     </sql>
     <sql id="batchDouFieldWithoutNullSql">
         <trim suffixOverrides=",">
-                <choose><when test="item.p900!=null">"p900",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p6891!=null">"p6891",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p686!=null">"p686",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p800!=null">"p800",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7501!=null">"p7501",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7502!=null">"p7502",</when><otherwise>"p7502",</otherwise></choose>
-                <choose><when test="item.p4!=null">"p4",</when><otherwise></otherwise></choose>
+                <choose><when test="item.id!=null">"ID",</when><otherwise>"ID",</otherwise></choose>
+                <choose><when test="item.p900!=null">"P900",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p6891!=null">"P6891",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p686!=null">"P686",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p800!=null">"P800",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7501!=null">"P7501",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7502!=null">"P7502",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p4!=null">"P4",</when><otherwise></otherwise></choose>
                 <choose><when test="item.p5!=null">"P5",</when><otherwise></otherwise></choose>
                 <choose><when test="item.p6!=null">"P6",</when><otherwise></otherwise></choose>
                 <choose><when test="item.p7!=null">"P7",</when><otherwise></otherwise></choose>
                 <choose><when test="item.p7503!=null">"P7503",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p13!=null">"p13",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7504!=null">"p7504",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7505!=null">"p7505",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7506!=null">"p7506",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7507!=null">"p7507",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p321!=null">"p321",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p322!=null">"p322",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p324!=null">"p324",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p325!=null">"p325",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p327!=null">"p327",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p328!=null">"p328",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3291!=null">"p3291",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3292!=null">"p3292",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3294!=null">"p3294",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3295!=null">"p3295",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3297!=null">"p3297",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3298!=null">"p3298",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3281!=null">"p3281",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3282!=null">"p3282",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3284!=null">"p3284",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3285!=null">"p3285",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3287!=null">"p3287",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3288!=null">"p3288",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3271!=null">"p3271",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3272!=null">"p3272",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3274!=null">"p3274",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p3275!=null">"p3275",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p13!=null">"P13",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7504!=null">"P7504",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7505!=null">"P7505",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7506!=null">"P7506",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7507!=null">"P7507",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p321!=null">"P321",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p322!=null">"P322",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p324!=null">"P324",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p325!=null">"P325",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p327!=null">"P327",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p328!=null">"P328",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3291!=null">"P3291",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3292!=null">"P3292",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3294!=null">"P3294",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3295!=null">"P3295",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3297!=null">"P3297",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3298!=null">"P3298",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3281!=null">"P3281",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3282!=null">"P3282",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3284!=null">"P3284",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3285!=null">"P3285",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3287!=null">"P3287",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3288!=null">"P3288",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3271!=null">"P3271",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3272!=null">"P3272",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3274!=null">"P3274",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p3275!=null">"P3275",</when><otherwise></otherwise></choose>
                 <choose><when test="item.p6911!=null">"P6911",</when><otherwise></otherwise></choose>
                 <choose><when test="item.p6912!=null">"P6912",</when><otherwise></otherwise></choose>
                 <choose><when test="item.p6913!=null">"P6913",</when><otherwise></otherwise></choose>
@@ -702,24 +711,25 @@
                 <choose><when test="item.p6924!=null">"P6924",</when><otherwise></otherwise></choose>
                 <choose><when test="item.p6925!=null">"P6925",</when><otherwise></otherwise></choose>
                 <choose><when test="item.p1!=null">"P1",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7508!=null">"p7508",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7509!=null">"p7509",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7510!=null">"p7510",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7511!=null">"p7511",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7512!=null">"p7512",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p8508!=null">"p8508",</when><otherwise></otherwise></choose>
-                <choose><when test="item.p8509!=null">"p8509",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7508!=null">"P7508",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7509!=null">"P7509",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7510!=null">"P7510",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7511!=null">"P7511",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p7512!=null">"P7512",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p8508!=null">"P8508",</when><otherwise></otherwise></choose>
+                <choose><when test="item.p8509!=null">"P8509",</when><otherwise></otherwise></choose>
 
         </trim>
     </sql>
     <sql id="batchDouValueWithoutNullSql">
         <trim suffixOverrides=",">
+                <choose><when test="item.id!=null">#{item.id},</when><otherwise><include refid="sequenceNextValSql"/>,</otherwise></choose>
                 <choose><when test="item.p900!=null">#{item.p900},</when><otherwise></otherwise></choose>
                 <choose><when test="item.p6891!=null">#{item.p6891},</when><otherwise></otherwise></choose>
                 <choose><when test="item.p686!=null">#{item.p686},</when><otherwise></otherwise></choose>
                 <choose><when test="item.p800!=null">#{item.p800},</when><otherwise></otherwise></choose>
                 <choose><when test="item.p7501!=null">#{item.p7501},</when><otherwise></otherwise></choose>
-                <choose><when test="item.p7502!=null">#{item.p7502},</when><otherwise><include refid="sequenceNextValSql"/>,</otherwise></choose>
+                <choose><when test="item.p7502!=null">#{item.p7502},</when><otherwise></otherwise></choose>
                 <choose><when test="item.p4!=null">#{item.p4},</when><otherwise></otherwise></choose>
                 <choose><when test="item.p5!=null">#{item.p5},</when><otherwise></otherwise></choose>
                 <choose><when test="item.p6!=null">#{item.p6},</when><otherwise></otherwise></choose>
@@ -779,43 +789,44 @@
     </sql>
     <sql id="updateSetSql">
         <set>
-                    <choose> <when test="p900!=null">"p900"=#{p900}</when> <otherwise> "p900"=NULL</otherwise> </choose>,
-                    <choose> <when test="p6891!=null">"p6891"=#{p6891}</when> <otherwise> "p6891"=NULL</otherwise> </choose>,
-                    <choose> <when test="p686!=null">"p686"=#{p686}</when> <otherwise> "p686"=NULL</otherwise> </choose>,
-                    <choose> <when test="p800!=null">"p800"=#{p800}</when> <otherwise> "p800"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7501!=null">"p7501"=#{p7501}</when> <otherwise> "p7501"=NULL</otherwise> </choose>,
-                    <choose> <when test="p4!=null">"p4"=#{p4}</when> <otherwise> "p4"=NULL</otherwise> </choose>,
+                    <choose> <when test="p900!=null">"P900"=#{p900}</when> <otherwise> "P900"=NULL</otherwise> </choose>,
+                    <choose> <when test="p6891!=null">"P6891"=#{p6891}</when> <otherwise> "P6891"=NULL</otherwise> </choose>,
+                    <choose> <when test="p686!=null">"P686"=#{p686}</when> <otherwise> "P686"=NULL</otherwise> </choose>,
+                    <choose> <when test="p800!=null">"P800"=#{p800}</when> <otherwise> "P800"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7501!=null">"P7501"=#{p7501}</when> <otherwise> "P7501"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7502!=null">"P7502"=#{p7502}</when> <otherwise> "P7502"=NULL</otherwise> </choose>,
+                    <choose> <when test="p4!=null">"P4"=#{p4}</when> <otherwise> "P4"=NULL</otherwise> </choose>,
                     <choose> <when test="p5!=null">"P5"=#{p5}</when> <otherwise> "P5"=NULL</otherwise> </choose>,
                     <choose> <when test="p6!=null">"P6"=#{p6}</when> <otherwise> "P6"=NULL</otherwise> </choose>,
                     <choose> <when test="p7!=null">"P7"=#{p7}</when> <otherwise> "P7"=NULL</otherwise> </choose>,
                     <choose> <when test="p7503!=null">"P7503"=#{p7503}</when> <otherwise> "P7503"=NULL</otherwise> </choose>,
-                    <choose> <when test="p13!=null">"p13"=#{p13}</when> <otherwise> "p13"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7504!=null">"p7504"=#{p7504}</when> <otherwise> "p7504"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7505!=null">"p7505"=#{p7505}</when> <otherwise> "p7505"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7506!=null">"p7506"=#{p7506}</when> <otherwise> "p7506"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7507!=null">"p7507"=#{p7507}</when> <otherwise> "p7507"=NULL</otherwise> </choose>,
-                    <choose> <when test="p321!=null">"p321"=#{p321}</when> <otherwise> "p321"=NULL</otherwise> </choose>,
-                    <choose> <when test="p322!=null">"p322"=#{p322}</when> <otherwise> "p322"=NULL</otherwise> </choose>,
-                    <choose> <when test="p324!=null">"p324"=#{p324}</when> <otherwise> "p324"=NULL</otherwise> </choose>,
-                    <choose> <when test="p325!=null">"p325"=#{p325}</when> <otherwise> "p325"=NULL</otherwise> </choose>,
-                    <choose> <when test="p327!=null">"p327"=#{p327}</when> <otherwise> "p327"=NULL</otherwise> </choose>,
-                    <choose> <when test="p328!=null">"p328"=#{p328}</when> <otherwise> "p328"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3291!=null">"p3291"=#{p3291}</when> <otherwise> "p3291"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3292!=null">"p3292"=#{p3292}</when> <otherwise> "p3292"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3294!=null">"p3294"=#{p3294}</when> <otherwise> "p3294"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3295!=null">"p3295"=#{p3295}</when> <otherwise> "p3295"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3297!=null">"p3297"=#{p3297}</when> <otherwise> "p3297"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3298!=null">"p3298"=#{p3298}</when> <otherwise> "p3298"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3281!=null">"p3281"=#{p3281}</when> <otherwise> "p3281"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3282!=null">"p3282"=#{p3282}</when> <otherwise> "p3282"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3284!=null">"p3284"=#{p3284}</when> <otherwise> "p3284"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3285!=null">"p3285"=#{p3285}</when> <otherwise> "p3285"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3287!=null">"p3287"=#{p3287}</when> <otherwise> "p3287"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3288!=null">"p3288"=#{p3288}</when> <otherwise> "p3288"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3271!=null">"p3271"=#{p3271}</when> <otherwise> "p3271"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3272!=null">"p3272"=#{p3272}</when> <otherwise> "p3272"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3274!=null">"p3274"=#{p3274}</when> <otherwise> "p3274"=NULL</otherwise> </choose>,
-                    <choose> <when test="p3275!=null">"p3275"=#{p3275}</when> <otherwise> "p3275"=NULL</otherwise> </choose>,
+                    <choose> <when test="p13!=null">"P13"=#{p13}</when> <otherwise> "P13"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7504!=null">"P7504"=#{p7504}</when> <otherwise> "P7504"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7505!=null">"P7505"=#{p7505}</when> <otherwise> "P7505"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7506!=null">"P7506"=#{p7506}</when> <otherwise> "P7506"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7507!=null">"P7507"=#{p7507}</when> <otherwise> "P7507"=NULL</otherwise> </choose>,
+                    <choose> <when test="p321!=null">"P321"=#{p321}</when> <otherwise> "P321"=NULL</otherwise> </choose>,
+                    <choose> <when test="p322!=null">"P322"=#{p322}</when> <otherwise> "P322"=NULL</otherwise> </choose>,
+                    <choose> <when test="p324!=null">"P324"=#{p324}</when> <otherwise> "P324"=NULL</otherwise> </choose>,
+                    <choose> <when test="p325!=null">"P325"=#{p325}</when> <otherwise> "P325"=NULL</otherwise> </choose>,
+                    <choose> <when test="p327!=null">"P327"=#{p327}</when> <otherwise> "P327"=NULL</otherwise> </choose>,
+                    <choose> <when test="p328!=null">"P328"=#{p328}</when> <otherwise> "P328"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3291!=null">"P3291"=#{p3291}</when> <otherwise> "P3291"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3292!=null">"P3292"=#{p3292}</when> <otherwise> "P3292"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3294!=null">"P3294"=#{p3294}</when> <otherwise> "P3294"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3295!=null">"P3295"=#{p3295}</when> <otherwise> "P3295"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3297!=null">"P3297"=#{p3297}</when> <otherwise> "P3297"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3298!=null">"P3298"=#{p3298}</when> <otherwise> "P3298"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3281!=null">"P3281"=#{p3281}</when> <otherwise> "P3281"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3282!=null">"P3282"=#{p3282}</when> <otherwise> "P3282"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3284!=null">"P3284"=#{p3284}</when> <otherwise> "P3284"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3285!=null">"P3285"=#{p3285}</when> <otherwise> "P3285"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3287!=null">"P3287"=#{p3287}</when> <otherwise> "P3287"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3288!=null">"P3288"=#{p3288}</when> <otherwise> "P3288"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3271!=null">"P3271"=#{p3271}</when> <otherwise> "P3271"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3272!=null">"P3272"=#{p3272}</when> <otherwise> "P3272"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3274!=null">"P3274"=#{p3274}</when> <otherwise> "P3274"=NULL</otherwise> </choose>,
+                    <choose> <when test="p3275!=null">"P3275"=#{p3275}</when> <otherwise> "P3275"=NULL</otherwise> </choose>,
                     <choose> <when test="p6911!=null">"P6911"=#{p6911}</when> <otherwise> "P6911"=NULL</otherwise> </choose>,
                     <choose> <when test="p6912!=null">"P6912"=#{p6912}</when> <otherwise> "P6912"=NULL</otherwise> </choose>,
                     <choose> <when test="p6913!=null">"P6913"=#{p6913}</when> <otherwise> "P6913"=NULL</otherwise> </choose>,
@@ -832,54 +843,55 @@
                     <choose> <when test="p6924!=null">"P6924"=#{p6924}</when> <otherwise> "P6924"=NULL</otherwise> </choose>,
                     <choose> <when test="p6925!=null">"P6925"=#{p6925}</when> <otherwise> "P6925"=NULL</otherwise> </choose>,
                     <choose> <when test="p1!=null">"P1"=#{p1}</when> <otherwise> "P1"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7508!=null">"p7508"=#{p7508}</when> <otherwise> "p7508"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7509!=null">"p7509"=#{p7509}</when> <otherwise> "p7509"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7510!=null">"p7510"=#{p7510}</when> <otherwise> "p7510"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7511!=null">"p7511"=#{p7511}</when> <otherwise> "p7511"=NULL</otherwise> </choose>,
-                    <choose> <when test="p7512!=null">"p7512"=#{p7512}</when> <otherwise> "p7512"=NULL</otherwise> </choose>,
-                    <choose> <when test="p8508!=null">"p8508"=#{p8508}</when> <otherwise> "p8508"=NULL</otherwise> </choose>,
-                    <choose> <when test="p8509!=null">"p8509"=#{p8509}</when> <otherwise> "p8509"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7508!=null">"P7508"=#{p7508}</when> <otherwise> "P7508"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7509!=null">"P7509"=#{p7509}</when> <otherwise> "P7509"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7510!=null">"P7510"=#{p7510}</when> <otherwise> "P7510"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7511!=null">"P7511"=#{p7511}</when> <otherwise> "P7511"=NULL</otherwise> </choose>,
+                    <choose> <when test="p7512!=null">"P7512"=#{p7512}</when> <otherwise> "P7512"=NULL</otherwise> </choose>,
+                    <choose> <when test="p8508!=null">"P8508"=#{p8508}</when> <otherwise> "P8508"=NULL</otherwise> </choose>,
+                    <choose> <when test="p8509!=null">"P8509"=#{p8509}</when> <otherwise> "P8509"=NULL</otherwise> </choose>,
         </set>
     </sql>
     <sql id="updateSetWithoutNullSql">
         <set>
-                    <choose><when test="p900!=null">"p900"=#{p900},</when></choose>
-                    <choose><when test="p6891!=null">"p6891"=#{p6891},</when></choose>
-                    <choose><when test="p686!=null">"p686"=#{p686},</when></choose>
-                    <choose><when test="p800!=null">"p800"=#{p800},</when></choose>
-                    <choose><when test="p7501!=null">"p7501"=#{p7501},</when></choose>
-                    <choose><when test="p4!=null">"p4"=#{p4},</when></choose>
+                    <choose><when test="p900!=null">"P900"=#{p900},</when></choose>
+                    <choose><when test="p6891!=null">"P6891"=#{p6891},</when></choose>
+                    <choose><when test="p686!=null">"P686"=#{p686},</when></choose>
+                    <choose><when test="p800!=null">"P800"=#{p800},</when></choose>
+                    <choose><when test="p7501!=null">"P7501"=#{p7501},</when></choose>
+                    <choose><when test="p7502!=null">"P7502"=#{p7502},</when></choose>
+                    <choose><when test="p4!=null">"P4"=#{p4},</when></choose>
                     <choose><when test="p5!=null">"P5"=#{p5},</when></choose>
                     <choose><when test="p6!=null">"P6"=#{p6},</when></choose>
                     <choose><when test="p7!=null">"P7"=#{p7},</when></choose>
                     <choose><when test="p7503!=null">"P7503"=#{p7503},</when></choose>
-                    <choose><when test="p13!=null">"p13"=#{p13},</when></choose>
-                    <choose><when test="p7504!=null">"p7504"=#{p7504},</when></choose>
-                    <choose><when test="p7505!=null">"p7505"=#{p7505},</when></choose>
-                    <choose><when test="p7506!=null">"p7506"=#{p7506},</when></choose>
-                    <choose><when test="p7507!=null">"p7507"=#{p7507},</when></choose>
-                    <choose><when test="p321!=null">"p321"=#{p321},</when></choose>
-                    <choose><when test="p322!=null">"p322"=#{p322},</when></choose>
-                    <choose><when test="p324!=null">"p324"=#{p324},</when></choose>
-                    <choose><when test="p325!=null">"p325"=#{p325},</when></choose>
-                    <choose><when test="p327!=null">"p327"=#{p327},</when></choose>
-                    <choose><when test="p328!=null">"p328"=#{p328},</when></choose>
-                    <choose><when test="p3291!=null">"p3291"=#{p3291},</when></choose>
-                    <choose><when test="p3292!=null">"p3292"=#{p3292},</when></choose>
-                    <choose><when test="p3294!=null">"p3294"=#{p3294},</when></choose>
-                    <choose><when test="p3295!=null">"p3295"=#{p3295},</when></choose>
-                    <choose><when test="p3297!=null">"p3297"=#{p3297},</when></choose>
-                    <choose><when test="p3298!=null">"p3298"=#{p3298},</when></choose>
-                    <choose><when test="p3281!=null">"p3281"=#{p3281},</when></choose>
-                    <choose><when test="p3282!=null">"p3282"=#{p3282},</when></choose>
-                    <choose><when test="p3284!=null">"p3284"=#{p3284},</when></choose>
-                    <choose><when test="p3285!=null">"p3285"=#{p3285},</when></choose>
-                    <choose><when test="p3287!=null">"p3287"=#{p3287},</when></choose>
-                    <choose><when test="p3288!=null">"p3288"=#{p3288},</when></choose>
-                    <choose><when test="p3271!=null">"p3271"=#{p3271},</when></choose>
-                    <choose><when test="p3272!=null">"p3272"=#{p3272},</when></choose>
-                    <choose><when test="p3274!=null">"p3274"=#{p3274},</when></choose>
-                    <choose><when test="p3275!=null">"p3275"=#{p3275},</when></choose>
+                    <choose><when test="p13!=null">"P13"=#{p13},</when></choose>
+                    <choose><when test="p7504!=null">"P7504"=#{p7504},</when></choose>
+                    <choose><when test="p7505!=null">"P7505"=#{p7505},</when></choose>
+                    <choose><when test="p7506!=null">"P7506"=#{p7506},</when></choose>
+                    <choose><when test="p7507!=null">"P7507"=#{p7507},</when></choose>
+                    <choose><when test="p321!=null">"P321"=#{p321},</when></choose>
+                    <choose><when test="p322!=null">"P322"=#{p322},</when></choose>
+                    <choose><when test="p324!=null">"P324"=#{p324},</when></choose>
+                    <choose><when test="p325!=null">"P325"=#{p325},</when></choose>
+                    <choose><when test="p327!=null">"P327"=#{p327},</when></choose>
+                    <choose><when test="p328!=null">"P328"=#{p328},</when></choose>
+                    <choose><when test="p3291!=null">"P3291"=#{p3291},</when></choose>
+                    <choose><when test="p3292!=null">"P3292"=#{p3292},</when></choose>
+                    <choose><when test="p3294!=null">"P3294"=#{p3294},</when></choose>
+                    <choose><when test="p3295!=null">"P3295"=#{p3295},</when></choose>
+                    <choose><when test="p3297!=null">"P3297"=#{p3297},</when></choose>
+                    <choose><when test="p3298!=null">"P3298"=#{p3298},</when></choose>
+                    <choose><when test="p3281!=null">"P3281"=#{p3281},</when></choose>
+                    <choose><when test="p3282!=null">"P3282"=#{p3282},</when></choose>
+                    <choose><when test="p3284!=null">"P3284"=#{p3284},</when></choose>
+                    <choose><when test="p3285!=null">"P3285"=#{p3285},</when></choose>
+                    <choose><when test="p3287!=null">"P3287"=#{p3287},</when></choose>
+                    <choose><when test="p3288!=null">"P3288"=#{p3288},</when></choose>
+                    <choose><when test="p3271!=null">"P3271"=#{p3271},</when></choose>
+                    <choose><when test="p3272!=null">"P3272"=#{p3272},</when></choose>
+                    <choose><when test="p3274!=null">"P3274"=#{p3274},</when></choose>
+                    <choose><when test="p3275!=null">"P3275"=#{p3275},</when></choose>
                     <choose><when test="p6911!=null">"P6911"=#{p6911},</when></choose>
                     <choose><when test="p6912!=null">"P6912"=#{p6912},</when></choose>
                     <choose><when test="p6913!=null">"P6913"=#{p6913},</when></choose>
@@ -896,62 +908,63 @@
                     <choose><when test="p6924!=null">"P6924"=#{p6924},</when></choose>
                     <choose><when test="p6925!=null">"P6925"=#{p6925},</when></choose>
                     <choose><when test="p1!=null">"P1"=#{p1},</when></choose>
-                    <choose><when test="p7508!=null">"p7508"=#{p7508},</when></choose>
-                    <choose><when test="p7509!=null">"p7509"=#{p7509},</when></choose>
-                    <choose><when test="p7510!=null">"p7510"=#{p7510},</when></choose>
-                    <choose><when test="p7511!=null">"p7511"=#{p7511},</when></choose>
-                    <choose><when test="p7512!=null">"p7512"=#{p7512},</when></choose>
-                    <choose><when test="p8508!=null">"p8508"=#{p8508},</when></choose>
-                    <choose><when test="p8509!=null">"p8509"=#{p8509},</when></choose>
+                    <choose><when test="p7508!=null">"P7508"=#{p7508},</when></choose>
+                    <choose><when test="p7509!=null">"P7509"=#{p7509},</when></choose>
+                    <choose><when test="p7510!=null">"P7510"=#{p7510},</when></choose>
+                    <choose><when test="p7511!=null">"P7511"=#{p7511},</when></choose>
+                    <choose><when test="p7512!=null">"P7512"=#{p7512},</when></choose>
+                    <choose><when test="p8508!=null">"P8508"=#{p8508},</when></choose>
+                    <choose><when test="p8509!=null">"P8509"=#{p8509},</when></choose>
         </set>
     </sql>
     <sql id="magicalcoderPkWhereSql">
         WHERE 1=1
-            AND "p7502" = #{magicalCoderPrimaryKeyName}
+            AND "ID" = #{magicalCoderPrimaryKeyName}
     </sql>
     <sql id="updatePkWhereSql">
         WHERE 1=1
-            AND "p7502" = #{p7502}
+            AND "ID" = #{id}
     </sql>
     <sql id="batchUpdateSetSql">
         <set>
-                    <choose> <when test="item.p900!=null">"p900"=#{item.p900}</when> <otherwise> "p900"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p6891!=null">"p6891"=#{item.p6891}</when> <otherwise> "p6891"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p686!=null">"p686"=#{item.p686}</when> <otherwise> "p686"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p800!=null">"p800"=#{item.p800}</when> <otherwise> "p800"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7501!=null">"p7501"=#{item.p7501}</when> <otherwise> "p7501"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p4!=null">"p4"=#{item.p4}</when> <otherwise> "p4"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p900!=null">"P900"=#{item.p900}</when> <otherwise> "P900"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p6891!=null">"P6891"=#{item.p6891}</when> <otherwise> "P6891"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p686!=null">"P686"=#{item.p686}</when> <otherwise> "P686"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p800!=null">"P800"=#{item.p800}</when> <otherwise> "P800"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7501!=null">"P7501"=#{item.p7501}</when> <otherwise> "P7501"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7502!=null">"P7502"=#{item.p7502}</when> <otherwise> "P7502"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p4!=null">"P4"=#{item.p4}</when> <otherwise> "P4"=NULL</otherwise> </choose>,
                     <choose> <when test="item.p5!=null">"P5"=#{item.p5}</when> <otherwise> "P5"=NULL</otherwise> </choose>,
                     <choose> <when test="item.p6!=null">"P6"=#{item.p6}</when> <otherwise> "P6"=NULL</otherwise> </choose>,
                     <choose> <when test="item.p7!=null">"P7"=#{item.p7}</when> <otherwise> "P7"=NULL</otherwise> </choose>,
                     <choose> <when test="item.p7503!=null">"P7503"=#{item.p7503}</when> <otherwise> "P7503"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p13!=null">"p13"=#{item.p13}</when> <otherwise> "p13"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7504!=null">"p7504"=#{item.p7504}</when> <otherwise> "p7504"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7505!=null">"p7505"=#{item.p7505}</when> <otherwise> "p7505"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7506!=null">"p7506"=#{item.p7506}</when> <otherwise> "p7506"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7507!=null">"p7507"=#{item.p7507}</when> <otherwise> "p7507"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p321!=null">"p321"=#{item.p321}</when> <otherwise> "p321"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p322!=null">"p322"=#{item.p322}</when> <otherwise> "p322"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p324!=null">"p324"=#{item.p324}</when> <otherwise> "p324"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p325!=null">"p325"=#{item.p325}</when> <otherwise> "p325"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p327!=null">"p327"=#{item.p327}</when> <otherwise> "p327"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p328!=null">"p328"=#{item.p328}</when> <otherwise> "p328"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3291!=null">"p3291"=#{item.p3291}</when> <otherwise> "p3291"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3292!=null">"p3292"=#{item.p3292}</when> <otherwise> "p3292"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3294!=null">"p3294"=#{item.p3294}</when> <otherwise> "p3294"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3295!=null">"p3295"=#{item.p3295}</when> <otherwise> "p3295"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3297!=null">"p3297"=#{item.p3297}</when> <otherwise> "p3297"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3298!=null">"p3298"=#{item.p3298}</when> <otherwise> "p3298"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3281!=null">"p3281"=#{item.p3281}</when> <otherwise> "p3281"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3282!=null">"p3282"=#{item.p3282}</when> <otherwise> "p3282"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3284!=null">"p3284"=#{item.p3284}</when> <otherwise> "p3284"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3285!=null">"p3285"=#{item.p3285}</when> <otherwise> "p3285"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3287!=null">"p3287"=#{item.p3287}</when> <otherwise> "p3287"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3288!=null">"p3288"=#{item.p3288}</when> <otherwise> "p3288"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3271!=null">"p3271"=#{item.p3271}</when> <otherwise> "p3271"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3272!=null">"p3272"=#{item.p3272}</when> <otherwise> "p3272"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3274!=null">"p3274"=#{item.p3274}</when> <otherwise> "p3274"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p3275!=null">"p3275"=#{item.p3275}</when> <otherwise> "p3275"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p13!=null">"P13"=#{item.p13}</when> <otherwise> "P13"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7504!=null">"P7504"=#{item.p7504}</when> <otherwise> "P7504"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7505!=null">"P7505"=#{item.p7505}</when> <otherwise> "P7505"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7506!=null">"P7506"=#{item.p7506}</when> <otherwise> "P7506"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7507!=null">"P7507"=#{item.p7507}</when> <otherwise> "P7507"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p321!=null">"P321"=#{item.p321}</when> <otherwise> "P321"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p322!=null">"P322"=#{item.p322}</when> <otherwise> "P322"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p324!=null">"P324"=#{item.p324}</when> <otherwise> "P324"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p325!=null">"P325"=#{item.p325}</when> <otherwise> "P325"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p327!=null">"P327"=#{item.p327}</when> <otherwise> "P327"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p328!=null">"P328"=#{item.p328}</when> <otherwise> "P328"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3291!=null">"P3291"=#{item.p3291}</when> <otherwise> "P3291"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3292!=null">"P3292"=#{item.p3292}</when> <otherwise> "P3292"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3294!=null">"P3294"=#{item.p3294}</when> <otherwise> "P3294"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3295!=null">"P3295"=#{item.p3295}</when> <otherwise> "P3295"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3297!=null">"P3297"=#{item.p3297}</when> <otherwise> "P3297"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3298!=null">"P3298"=#{item.p3298}</when> <otherwise> "P3298"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3281!=null">"P3281"=#{item.p3281}</when> <otherwise> "P3281"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3282!=null">"P3282"=#{item.p3282}</when> <otherwise> "P3282"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3284!=null">"P3284"=#{item.p3284}</when> <otherwise> "P3284"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3285!=null">"P3285"=#{item.p3285}</when> <otherwise> "P3285"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3287!=null">"P3287"=#{item.p3287}</when> <otherwise> "P3287"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3288!=null">"P3288"=#{item.p3288}</when> <otherwise> "P3288"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3271!=null">"P3271"=#{item.p3271}</when> <otherwise> "P3271"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3272!=null">"P3272"=#{item.p3272}</when> <otherwise> "P3272"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3274!=null">"P3274"=#{item.p3274}</when> <otherwise> "P3274"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p3275!=null">"P3275"=#{item.p3275}</when> <otherwise> "P3275"=NULL</otherwise> </choose>,
                     <choose> <when test="item.p6911!=null">"P6911"=#{item.p6911}</when> <otherwise> "P6911"=NULL</otherwise> </choose>,
                     <choose> <when test="item.p6912!=null">"P6912"=#{item.p6912}</when> <otherwise> "P6912"=NULL</otherwise> </choose>,
                     <choose> <when test="item.p6913!=null">"P6913"=#{item.p6913}</when> <otherwise> "P6913"=NULL</otherwise> </choose>,
@@ -968,54 +981,55 @@
                     <choose> <when test="item.p6924!=null">"P6924"=#{item.p6924}</when> <otherwise> "P6924"=NULL</otherwise> </choose>,
                     <choose> <when test="item.p6925!=null">"P6925"=#{item.p6925}</when> <otherwise> "P6925"=NULL</otherwise> </choose>,
                     <choose> <when test="item.p1!=null">"P1"=#{item.p1}</when> <otherwise> "P1"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7508!=null">"p7508"=#{item.p7508}</when> <otherwise> "p7508"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7509!=null">"p7509"=#{item.p7509}</when> <otherwise> "p7509"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7510!=null">"p7510"=#{item.p7510}</when> <otherwise> "p7510"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7511!=null">"p7511"=#{item.p7511}</when> <otherwise> "p7511"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p7512!=null">"p7512"=#{item.p7512}</when> <otherwise> "p7512"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p8508!=null">"p8508"=#{item.p8508}</when> <otherwise> "p8508"=NULL</otherwise> </choose>,
-                    <choose> <when test="item.p8509!=null">"p8509"=#{item.p8509}</when> <otherwise> "p8509"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7508!=null">"P7508"=#{item.p7508}</when> <otherwise> "P7508"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7509!=null">"P7509"=#{item.p7509}</when> <otherwise> "P7509"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7510!=null">"P7510"=#{item.p7510}</when> <otherwise> "P7510"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7511!=null">"P7511"=#{item.p7511}</when> <otherwise> "P7511"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p7512!=null">"P7512"=#{item.p7512}</when> <otherwise> "P7512"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p8508!=null">"P8508"=#{item.p8508}</when> <otherwise> "P8508"=NULL</otherwise> </choose>,
+                    <choose> <when test="item.p8509!=null">"P8509"=#{item.p8509}</when> <otherwise> "P8509"=NULL</otherwise> </choose>,
         </set>
     </sql>
     <sql id="batchUpdateWithoutNullSetSql">
         <set>
-                    <choose> <when test="item.p900!=null">"p900"=#{item.p900},</when></choose>
-                    <choose> <when test="item.p6891!=null">"p6891"=#{item.p6891},</when></choose>
-                    <choose> <when test="item.p686!=null">"p686"=#{item.p686},</when></choose>
-                    <choose> <when test="item.p800!=null">"p800"=#{item.p800},</when></choose>
-                    <choose> <when test="item.p7501!=null">"p7501"=#{item.p7501},</when></choose>
-                    <choose> <when test="item.p4!=null">"p4"=#{item.p4},</when></choose>
+                    <choose> <when test="item.p900!=null">"P900"=#{item.p900},</when></choose>
+                    <choose> <when test="item.p6891!=null">"P6891"=#{item.p6891},</when></choose>
+                    <choose> <when test="item.p686!=null">"P686"=#{item.p686},</when></choose>
+                    <choose> <when test="item.p800!=null">"P800"=#{item.p800},</when></choose>
+                    <choose> <when test="item.p7501!=null">"P7501"=#{item.p7501},</when></choose>
+                    <choose> <when test="item.p7502!=null">"P7502"=#{item.p7502},</when></choose>
+                    <choose> <when test="item.p4!=null">"P4"=#{item.p4},</when></choose>
                     <choose> <when test="item.p5!=null">"P5"=#{item.p5},</when></choose>
                     <choose> <when test="item.p6!=null">"P6"=#{item.p6},</when></choose>
                     <choose> <when test="item.p7!=null">"P7"=#{item.p7},</when></choose>
                     <choose> <when test="item.p7503!=null">"P7503"=#{item.p7503},</when></choose>
-                    <choose> <when test="item.p13!=null">"p13"=#{item.p13},</when></choose>
-                    <choose> <when test="item.p7504!=null">"p7504"=#{item.p7504},</when></choose>
-                    <choose> <when test="item.p7505!=null">"p7505"=#{item.p7505},</when></choose>
-                    <choose> <when test="item.p7506!=null">"p7506"=#{item.p7506},</when></choose>
-                    <choose> <when test="item.p7507!=null">"p7507"=#{item.p7507},</when></choose>
-                    <choose> <when test="item.p321!=null">"p321"=#{item.p321},</when></choose>
-                    <choose> <when test="item.p322!=null">"p322"=#{item.p322},</when></choose>
-                    <choose> <when test="item.p324!=null">"p324"=#{item.p324},</when></choose>
-                    <choose> <when test="item.p325!=null">"p325"=#{item.p325},</when></choose>
-                    <choose> <when test="item.p327!=null">"p327"=#{item.p327},</when></choose>
-                    <choose> <when test="item.p328!=null">"p328"=#{item.p328},</when></choose>
-                    <choose> <when test="item.p3291!=null">"p3291"=#{item.p3291},</when></choose>
-                    <choose> <when test="item.p3292!=null">"p3292"=#{item.p3292},</when></choose>
-                    <choose> <when test="item.p3294!=null">"p3294"=#{item.p3294},</when></choose>
-                    <choose> <when test="item.p3295!=null">"p3295"=#{item.p3295},</when></choose>
-                    <choose> <when test="item.p3297!=null">"p3297"=#{item.p3297},</when></choose>
-                    <choose> <when test="item.p3298!=null">"p3298"=#{item.p3298},</when></choose>
-                    <choose> <when test="item.p3281!=null">"p3281"=#{item.p3281},</when></choose>
-                    <choose> <when test="item.p3282!=null">"p3282"=#{item.p3282},</when></choose>
-                    <choose> <when test="item.p3284!=null">"p3284"=#{item.p3284},</when></choose>
-                    <choose> <when test="item.p3285!=null">"p3285"=#{item.p3285},</when></choose>
-                    <choose> <when test="item.p3287!=null">"p3287"=#{item.p3287},</when></choose>
-                    <choose> <when test="item.p3288!=null">"p3288"=#{item.p3288},</when></choose>
-                    <choose> <when test="item.p3271!=null">"p3271"=#{item.p3271},</when></choose>
-                    <choose> <when test="item.p3272!=null">"p3272"=#{item.p3272},</when></choose>
-                    <choose> <when test="item.p3274!=null">"p3274"=#{item.p3274},</when></choose>
-                    <choose> <when test="item.p3275!=null">"p3275"=#{item.p3275},</when></choose>
+                    <choose> <when test="item.p13!=null">"P13"=#{item.p13},</when></choose>
+                    <choose> <when test="item.p7504!=null">"P7504"=#{item.p7504},</when></choose>
+                    <choose> <when test="item.p7505!=null">"P7505"=#{item.p7505},</when></choose>
+                    <choose> <when test="item.p7506!=null">"P7506"=#{item.p7506},</when></choose>
+                    <choose> <when test="item.p7507!=null">"P7507"=#{item.p7507},</when></choose>
+                    <choose> <when test="item.p321!=null">"P321"=#{item.p321},</when></choose>
+                    <choose> <when test="item.p322!=null">"P322"=#{item.p322},</when></choose>
+                    <choose> <when test="item.p324!=null">"P324"=#{item.p324},</when></choose>
+                    <choose> <when test="item.p325!=null">"P325"=#{item.p325},</when></choose>
+                    <choose> <when test="item.p327!=null">"P327"=#{item.p327},</when></choose>
+                    <choose> <when test="item.p328!=null">"P328"=#{item.p328},</when></choose>
+                    <choose> <when test="item.p3291!=null">"P3291"=#{item.p3291},</when></choose>
+                    <choose> <when test="item.p3292!=null">"P3292"=#{item.p3292},</when></choose>
+                    <choose> <when test="item.p3294!=null">"P3294"=#{item.p3294},</when></choose>
+                    <choose> <when test="item.p3295!=null">"P3295"=#{item.p3295},</when></choose>
+                    <choose> <when test="item.p3297!=null">"P3297"=#{item.p3297},</when></choose>
+                    <choose> <when test="item.p3298!=null">"P3298"=#{item.p3298},</when></choose>
+                    <choose> <when test="item.p3281!=null">"P3281"=#{item.p3281},</when></choose>
+                    <choose> <when test="item.p3282!=null">"P3282"=#{item.p3282},</when></choose>
+                    <choose> <when test="item.p3284!=null">"P3284"=#{item.p3284},</when></choose>
+                    <choose> <when test="item.p3285!=null">"P3285"=#{item.p3285},</when></choose>
+                    <choose> <when test="item.p3287!=null">"P3287"=#{item.p3287},</when></choose>
+                    <choose> <when test="item.p3288!=null">"P3288"=#{item.p3288},</when></choose>
+                    <choose> <when test="item.p3271!=null">"P3271"=#{item.p3271},</when></choose>
+                    <choose> <when test="item.p3272!=null">"P3272"=#{item.p3272},</when></choose>
+                    <choose> <when test="item.p3274!=null">"P3274"=#{item.p3274},</when></choose>
+                    <choose> <when test="item.p3275!=null">"P3275"=#{item.p3275},</when></choose>
                     <choose> <when test="item.p6911!=null">"P6911"=#{item.p6911},</when></choose>
                     <choose> <when test="item.p6912!=null">"P6912"=#{item.p6912},</when></choose>
                     <choose> <when test="item.p6913!=null">"P6913"=#{item.p6913},</when></choose>
@@ -1032,18 +1046,18 @@
                     <choose> <when test="item.p6924!=null">"P6924"=#{item.p6924},</when></choose>
                     <choose> <when test="item.p6925!=null">"P6925"=#{item.p6925},</when></choose>
                     <choose> <when test="item.p1!=null">"P1"=#{item.p1},</when></choose>
-                    <choose> <when test="item.p7508!=null">"p7508"=#{item.p7508},</when></choose>
-                    <choose> <when test="item.p7509!=null">"p7509"=#{item.p7509},</when></choose>
-                    <choose> <when test="item.p7510!=null">"p7510"=#{item.p7510},</when></choose>
-                    <choose> <when test="item.p7511!=null">"p7511"=#{item.p7511},</when></choose>
-                    <choose> <when test="item.p7512!=null">"p7512"=#{item.p7512},</when></choose>
-                    <choose> <when test="item.p8508!=null">"p8508"=#{item.p8508},</when></choose>
-                    <choose> <when test="item.p8509!=null">"p8509"=#{item.p8509},</when></choose>
+                    <choose> <when test="item.p7508!=null">"P7508"=#{item.p7508},</when></choose>
+                    <choose> <when test="item.p7509!=null">"P7509"=#{item.p7509},</when></choose>
+                    <choose> <when test="item.p7510!=null">"P7510"=#{item.p7510},</when></choose>
+                    <choose> <when test="item.p7511!=null">"P7511"=#{item.p7511},</when></choose>
+                    <choose> <when test="item.p7512!=null">"P7512"=#{item.p7512},</when></choose>
+                    <choose> <when test="item.p8508!=null">"P8508"=#{item.p8508},</when></choose>
+                    <choose> <when test="item.p8509!=null">"P8509"=#{item.p8509},</when></choose>
         </set>
     </sql>
     <sql id="batchUpdatePkWhereSql">
         WHERE 1=1
-            AND "p7502" = #{item.p7502}
+            AND "ID" = #{item.id}
     </sql>
     <!-- 这里可以加上表名@orcl数据库link名称 方便的切换数据库 由于oracle不同于其他数据库，需要自己建立CREATE DATABASE LINK youyabootlink,所以此处可以根据实际情况自己修改模板-->
     <sql id="tableSql">
@@ -1054,44 +1068,45 @@
         GET_SEQ_V_A_L_('SEQ_FLU_MJZ_REPORT_FOR_JAVA')
     </sql>
    <sql id="whereSqlModel">
-        <if test="p900!=null "> AND "p900" = #{p900}</if>
-        <if test="p6891!=null "> AND "p6891" = #{p6891}</if>
-        <if test="p686!=null "> AND "p686" = #{p686}</if>
-        <if test="p800!=null "> AND "p800" = #{p800}</if>
-        <if test="p7501!=null "> AND "p7501" = #{p7501}</if>
-        <if test="p7502!=null "> AND "p7502" = #{p7502}</if>
-        <if test="p4!=null "> AND "p4" = #{p4}</if>
+        <if test="id!=null "> AND "ID" = #{id}</if>
+        <if test="p900!=null "> AND "P900" = #{p900}</if>
+        <if test="p6891!=null "> AND "P6891" = #{p6891}</if>
+        <if test="p686!=null "> AND "P686" = #{p686}</if>
+        <if test="p800!=null "> AND "P800" = #{p800}</if>
+        <if test="p7501!=null "> AND "P7501" = #{p7501}</if>
+        <if test="p7502!=null "> AND "P7502" = #{p7502}</if>
+        <if test="p4!=null "> AND "P4" = #{p4}</if>
         <if test="p5!=null "> AND "P5" = #{p5}</if>
         <if test="p6!=null "> AND "P6" = #{p6}</if>
         <if test="p7!=null "> AND "P7" = #{p7}</if>
         <if test="p7503!=null "> AND "P7503" = #{p7503}</if>
-        <if test="p13!=null "> AND "p13" = #{p13}</if>
-        <if test="p7504!=null "> AND "p7504" = #{p7504}</if>
-        <if test="p7505!=null "> AND "p7505" = #{p7505}</if>
-        <if test="p7506!=null "> AND "p7506" = #{p7506}</if>
-        <if test="p7507!=null "> AND "p7507" = #{p7507}</if>
-        <if test="p321!=null "> AND "p321" = #{p321}</if>
-        <if test="p322!=null "> AND "p322" = #{p322}</if>
-        <if test="p324!=null "> AND "p324" = #{p324}</if>
-        <if test="p325!=null "> AND "p325" = #{p325}</if>
-        <if test="p327!=null "> AND "p327" = #{p327}</if>
-        <if test="p328!=null "> AND "p328" = #{p328}</if>
-        <if test="p3291!=null "> AND "p3291" = #{p3291}</if>
-        <if test="p3292!=null "> AND "p3292" = #{p3292}</if>
-        <if test="p3294!=null "> AND "p3294" = #{p3294}</if>
-        <if test="p3295!=null "> AND "p3295" = #{p3295}</if>
-        <if test="p3297!=null "> AND "p3297" = #{p3297}</if>
-        <if test="p3298!=null "> AND "p3298" = #{p3298}</if>
-        <if test="p3281!=null "> AND "p3281" = #{p3281}</if>
-        <if test="p3282!=null "> AND "p3282" = #{p3282}</if>
-        <if test="p3284!=null "> AND "p3284" = #{p3284}</if>
-        <if test="p3285!=null "> AND "p3285" = #{p3285}</if>
-        <if test="p3287!=null "> AND "p3287" = #{p3287}</if>
-        <if test="p3288!=null "> AND "p3288" = #{p3288}</if>
-        <if test="p3271!=null "> AND "p3271" = #{p3271}</if>
-        <if test="p3272!=null "> AND "p3272" = #{p3272}</if>
-        <if test="p3274!=null "> AND "p3274" = #{p3274}</if>
-        <if test="p3275!=null "> AND "p3275" = #{p3275}</if>
+        <if test="p13!=null "> AND "P13" = #{p13}</if>
+        <if test="p7504!=null "> AND "P7504" = #{p7504}</if>
+        <if test="p7505!=null "> AND "P7505" = #{p7505}</if>
+        <if test="p7506!=null "> AND "P7506" = #{p7506}</if>
+        <if test="p7507!=null "> AND "P7507" = #{p7507}</if>
+        <if test="p321!=null "> AND "P321" = #{p321}</if>
+        <if test="p322!=null "> AND "P322" = #{p322}</if>
+        <if test="p324!=null "> AND "P324" = #{p324}</if>
+        <if test="p325!=null "> AND "P325" = #{p325}</if>
+        <if test="p327!=null "> AND "P327" = #{p327}</if>
+        <if test="p328!=null "> AND "P328" = #{p328}</if>
+        <if test="p3291!=null "> AND "P3291" = #{p3291}</if>
+        <if test="p3292!=null "> AND "P3292" = #{p3292}</if>
+        <if test="p3294!=null "> AND "P3294" = #{p3294}</if>
+        <if test="p3295!=null "> AND "P3295" = #{p3295}</if>
+        <if test="p3297!=null "> AND "P3297" = #{p3297}</if>
+        <if test="p3298!=null "> AND "P3298" = #{p3298}</if>
+        <if test="p3281!=null "> AND "P3281" = #{p3281}</if>
+        <if test="p3282!=null "> AND "P3282" = #{p3282}</if>
+        <if test="p3284!=null "> AND "P3284" = #{p3284}</if>
+        <if test="p3285!=null "> AND "P3285" = #{p3285}</if>
+        <if test="p3287!=null "> AND "P3287" = #{p3287}</if>
+        <if test="p3288!=null "> AND "P3288" = #{p3288}</if>
+        <if test="p3271!=null "> AND "P3271" = #{p3271}</if>
+        <if test="p3272!=null "> AND "P3272" = #{p3272}</if>
+        <if test="p3274!=null "> AND "P3274" = #{p3274}</if>
+        <if test="p3275!=null "> AND "P3275" = #{p3275}</if>
         <if test="p6911!=null "> AND "P6911" = #{p6911}</if>
         <if test="p6912!=null "> AND "P6912" = #{p6912}</if>
         <if test="p6913!=null "> AND "P6913" = #{p6913}</if>
@@ -1108,14 +1123,17 @@
         <if test="p6924!=null "> AND "P6924" = #{p6924}</if>
         <if test="p6925!=null "> AND "P6925" = #{p6925}</if>
         <if test="p1!=null "> AND "P1" = #{p1}</if>
-        <if test="p7508!=null "> AND "p7508" = #{p7508}</if>
-        <if test="p7509!=null "> AND "p7509" = #{p7509}</if>
-        <if test="p7510!=null "> AND "p7510" = #{p7510}</if>
-        <if test="p7511!=null "> AND "p7511" = #{p7511}</if>
-        <if test="p7512!=null "> AND "p7512" = #{p7512}</if>
-        <if test="p8508!=null "> AND "p8508" = #{p8508}</if>
-        <if test="p8509!=null "> AND "p8509" = #{p8509}</if>
-                <if test="p7502First!=null "> AND "p7502" <![CDATA[=]]>
+        <if test="p7508!=null "> AND "P7508" = #{p7508}</if>
+        <if test="p7509!=null "> AND "P7509" = #{p7509}</if>
+        <if test="p7510!=null "> AND "P7510" = #{p7510}</if>
+        <if test="p7511!=null "> AND "P7511" = #{p7511}</if>
+        <if test="p7512!=null "> AND "P7512" = #{p7512}</if>
+        <if test="p8508!=null "> AND "P8508" = #{p8508}</if>
+        <if test="p8509!=null "> AND "P8509" = #{p8509}</if>
+                <if test="idFirst!=null "> AND "ID" <![CDATA[=]]>
+                            #{idFirst}
+                </if>
+                <if test="p7502First!=null "> AND "P7502" <![CDATA[=]]>
                             #{p7502First}
                 </if>
         <!--<if test="whereSql!=null"> ${whereSql}</if>-->
@@ -1125,44 +1143,45 @@
         <if test="safeGroupBy!=null and safeGroupBy!=''">
             group by
             <choose>
-                <when test="safeGroupBy != null and safeGroupBy == 'p900'">  p900 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p6891'">  p6891 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p686'">  p686 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p800'">  p800 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7501'">  p7501 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7502'">  p7502 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p4'">  p4 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'ID'">  ID </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P900'">  P900 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P6891'">  P6891 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P686'">  P686 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P800'">  P800 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7501'">  P7501 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7502'">  P7502 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P4'">  P4 </when>
                 <when test="safeGroupBy != null and safeGroupBy == 'P5'">  P5 </when>
                 <when test="safeGroupBy != null and safeGroupBy == 'P6'">  P6 </when>
                 <when test="safeGroupBy != null and safeGroupBy == 'P7'">  P7 </when>
                 <when test="safeGroupBy != null and safeGroupBy == 'P7503'">  P7503 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p13'">  p13 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7504'">  p7504 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7505'">  p7505 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7506'">  p7506 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7507'">  p7507 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p321'">  p321 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p322'">  p322 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p324'">  p324 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p325'">  p325 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p327'">  p327 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p328'">  p328 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3291'">  p3291 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3292'">  p3292 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3294'">  p3294 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3295'">  p3295 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3297'">  p3297 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3298'">  p3298 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3281'">  p3281 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3282'">  p3282 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3284'">  p3284 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3285'">  p3285 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3287'">  p3287 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3288'">  p3288 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3271'">  p3271 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3272'">  p3272 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3274'">  p3274 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p3275'">  p3275 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P13'">  P13 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7504'">  P7504 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7505'">  P7505 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7506'">  P7506 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7507'">  P7507 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P321'">  P321 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P322'">  P322 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P324'">  P324 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P325'">  P325 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P327'">  P327 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P328'">  P328 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3291'">  P3291 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3292'">  P3292 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3294'">  P3294 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3295'">  P3295 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3297'">  P3297 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3298'">  P3298 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3281'">  P3281 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3282'">  P3282 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3284'">  P3284 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3285'">  P3285 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3287'">  P3287 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3288'">  P3288 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3271'">  P3271 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3272'">  P3272 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3274'">  P3274 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P3275'">  P3275 </when>
                 <when test="safeGroupBy != null and safeGroupBy == 'P6911'">  P6911 </when>
                 <when test="safeGroupBy != null and safeGroupBy == 'P6912'">  P6912 </when>
                 <when test="safeGroupBy != null and safeGroupBy == 'P6913'">  P6913 </when>
@@ -1179,33 +1198,35 @@
                 <when test="safeGroupBy != null and safeGroupBy == 'P6924'">  P6924 </when>
                 <when test="safeGroupBy != null and safeGroupBy == 'P6925'">  P6925 </when>
                 <when test="safeGroupBy != null and safeGroupBy == 'P1'">  P1 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7508'">  p7508 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7509'">  p7509 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7510'">  p7510 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7511'">  p7511 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p7512'">  p7512 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p8508'">  p8508 </when>
-                <when test="safeGroupBy != null and safeGroupBy == 'p8509'">  p8509 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7508'">  P7508 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7509'">  P7509 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7510'">  P7510 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7511'">  P7511 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P7512'">  P7512 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P8508'">  P8508 </when>
+                <when test="safeGroupBy != null and safeGroupBy == 'P8509'">  P8509 </when>
             </choose>
         </if>
     </sql>
     <sql id="safeOrderBy">
         <if test="safeOrderBy!=null and safeOrderBy!=''">
             <choose>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p900 DESC' )"> ORDER BY "p900" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p900 ASC' )"> ORDER BY "p900" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p6891 DESC' )"> ORDER BY "p6891" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p6891 ASC' )"> ORDER BY "p6891" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p686 DESC' )"> ORDER BY "p686" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p686 ASC' )"> ORDER BY "p686" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p800 DESC' )"> ORDER BY "p800" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p800 ASC' )"> ORDER BY "p800" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7501 DESC' )"> ORDER BY "p7501" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7501 ASC' )"> ORDER BY "p7501" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7502 DESC' )"> ORDER BY "p7502" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7502 ASC' )"> ORDER BY "p7502" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p4 DESC' )"> ORDER BY "p4" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p4 ASC' )"> ORDER BY "p4" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'ID DESC'  or safeOrderBy == 'id desc')"> ORDER BY "ID" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'ID ASC'  or safeOrderBy == 'id asc')"> ORDER BY "ID" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P900 DESC'  or safeOrderBy == 'p900 desc')"> ORDER BY "P900" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P900 ASC'  or safeOrderBy == 'p900 asc')"> ORDER BY "P900" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P6891 DESC'  or safeOrderBy == 'p6891 desc')"> ORDER BY "P6891" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P6891 ASC'  or safeOrderBy == 'p6891 asc')"> ORDER BY "P6891" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P686 DESC'  or safeOrderBy == 'p686 desc')"> ORDER BY "P686" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P686 ASC'  or safeOrderBy == 'p686 asc')"> ORDER BY "P686" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P800 DESC'  or safeOrderBy == 'p800 desc')"> ORDER BY "P800" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P800 ASC'  or safeOrderBy == 'p800 asc')"> ORDER BY "P800" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7501 DESC'  or safeOrderBy == 'p7501 desc')"> ORDER BY "P7501" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7501 ASC'  or safeOrderBy == 'p7501 asc')"> ORDER BY "P7501" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7502 DESC'  or safeOrderBy == 'p7502 desc')"> ORDER BY "P7502" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7502 ASC'  or safeOrderBy == 'p7502 asc')"> ORDER BY "P7502" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P4 DESC'  or safeOrderBy == 'p4 desc')"> ORDER BY "P4" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P4 ASC'  or safeOrderBy == 'p4 asc')"> ORDER BY "P4" ASC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P5 DESC'  or safeOrderBy == 'p5 desc')"> ORDER BY "P5" DESC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P5 ASC'  or safeOrderBy == 'p5 asc')"> ORDER BY "P5" ASC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P6 DESC'  or safeOrderBy == 'p6 desc')"> ORDER BY "P6" DESC </when>
@@ -1214,60 +1235,60 @@
                 <when test="safeOrderBy != null and (safeOrderBy == 'P7 ASC'  or safeOrderBy == 'p7 asc')"> ORDER BY "P7" ASC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P7503 DESC'  or safeOrderBy == 'p7503 desc')"> ORDER BY "P7503" DESC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P7503 ASC'  or safeOrderBy == 'p7503 asc')"> ORDER BY "P7503" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p13 DESC' )"> ORDER BY "p13" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p13 ASC' )"> ORDER BY "p13" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7504 DESC' )"> ORDER BY "p7504" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7504 ASC' )"> ORDER BY "p7504" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7505 DESC' )"> ORDER BY "p7505" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7505 ASC' )"> ORDER BY "p7505" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7506 DESC' )"> ORDER BY "p7506" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7506 ASC' )"> ORDER BY "p7506" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7507 DESC' )"> ORDER BY "p7507" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7507 ASC' )"> ORDER BY "p7507" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p321 DESC' )"> ORDER BY "p321" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p321 ASC' )"> ORDER BY "p321" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p322 DESC' )"> ORDER BY "p322" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p322 ASC' )"> ORDER BY "p322" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p324 DESC' )"> ORDER BY "p324" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p324 ASC' )"> ORDER BY "p324" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p325 DESC' )"> ORDER BY "p325" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p325 ASC' )"> ORDER BY "p325" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p327 DESC' )"> ORDER BY "p327" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p327 ASC' )"> ORDER BY "p327" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p328 DESC' )"> ORDER BY "p328" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p328 ASC' )"> ORDER BY "p328" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3291 DESC' )"> ORDER BY "p3291" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3291 ASC' )"> ORDER BY "p3291" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3292 DESC' )"> ORDER BY "p3292" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3292 ASC' )"> ORDER BY "p3292" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3294 DESC' )"> ORDER BY "p3294" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3294 ASC' )"> ORDER BY "p3294" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3295 DESC' )"> ORDER BY "p3295" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3295 ASC' )"> ORDER BY "p3295" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3297 DESC' )"> ORDER BY "p3297" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3297 ASC' )"> ORDER BY "p3297" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3298 DESC' )"> ORDER BY "p3298" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3298 ASC' )"> ORDER BY "p3298" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3281 DESC' )"> ORDER BY "p3281" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3281 ASC' )"> ORDER BY "p3281" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3282 DESC' )"> ORDER BY "p3282" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3282 ASC' )"> ORDER BY "p3282" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3284 DESC' )"> ORDER BY "p3284" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3284 ASC' )"> ORDER BY "p3284" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3285 DESC' )"> ORDER BY "p3285" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3285 ASC' )"> ORDER BY "p3285" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3287 DESC' )"> ORDER BY "p3287" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3287 ASC' )"> ORDER BY "p3287" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3288 DESC' )"> ORDER BY "p3288" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3288 ASC' )"> ORDER BY "p3288" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3271 DESC' )"> ORDER BY "p3271" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3271 ASC' )"> ORDER BY "p3271" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3272 DESC' )"> ORDER BY "p3272" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3272 ASC' )"> ORDER BY "p3272" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3274 DESC' )"> ORDER BY "p3274" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3274 ASC' )"> ORDER BY "p3274" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3275 DESC' )"> ORDER BY "p3275" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p3275 ASC' )"> ORDER BY "p3275" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P13 DESC'  or safeOrderBy == 'p13 desc')"> ORDER BY "P13" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P13 ASC'  or safeOrderBy == 'p13 asc')"> ORDER BY "P13" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7504 DESC'  or safeOrderBy == 'p7504 desc')"> ORDER BY "P7504" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7504 ASC'  or safeOrderBy == 'p7504 asc')"> ORDER BY "P7504" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7505 DESC'  or safeOrderBy == 'p7505 desc')"> ORDER BY "P7505" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7505 ASC'  or safeOrderBy == 'p7505 asc')"> ORDER BY "P7505" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7506 DESC'  or safeOrderBy == 'p7506 desc')"> ORDER BY "P7506" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7506 ASC'  or safeOrderBy == 'p7506 asc')"> ORDER BY "P7506" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7507 DESC'  or safeOrderBy == 'p7507 desc')"> ORDER BY "P7507" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7507 ASC'  or safeOrderBy == 'p7507 asc')"> ORDER BY "P7507" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P321 DESC'  or safeOrderBy == 'p321 desc')"> ORDER BY "P321" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P321 ASC'  or safeOrderBy == 'p321 asc')"> ORDER BY "P321" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P322 DESC'  or safeOrderBy == 'p322 desc')"> ORDER BY "P322" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P322 ASC'  or safeOrderBy == 'p322 asc')"> ORDER BY "P322" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P324 DESC'  or safeOrderBy == 'p324 desc')"> ORDER BY "P324" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P324 ASC'  or safeOrderBy == 'p324 asc')"> ORDER BY "P324" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P325 DESC'  or safeOrderBy == 'p325 desc')"> ORDER BY "P325" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P325 ASC'  or safeOrderBy == 'p325 asc')"> ORDER BY "P325" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P327 DESC'  or safeOrderBy == 'p327 desc')"> ORDER BY "P327" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P327 ASC'  or safeOrderBy == 'p327 asc')"> ORDER BY "P327" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P328 DESC'  or safeOrderBy == 'p328 desc')"> ORDER BY "P328" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P328 ASC'  or safeOrderBy == 'p328 asc')"> ORDER BY "P328" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3291 DESC'  or safeOrderBy == 'p3291 desc')"> ORDER BY "P3291" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3291 ASC'  or safeOrderBy == 'p3291 asc')"> ORDER BY "P3291" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3292 DESC'  or safeOrderBy == 'p3292 desc')"> ORDER BY "P3292" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3292 ASC'  or safeOrderBy == 'p3292 asc')"> ORDER BY "P3292" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3294 DESC'  or safeOrderBy == 'p3294 desc')"> ORDER BY "P3294" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3294 ASC'  or safeOrderBy == 'p3294 asc')"> ORDER BY "P3294" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3295 DESC'  or safeOrderBy == 'p3295 desc')"> ORDER BY "P3295" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3295 ASC'  or safeOrderBy == 'p3295 asc')"> ORDER BY "P3295" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3297 DESC'  or safeOrderBy == 'p3297 desc')"> ORDER BY "P3297" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3297 ASC'  or safeOrderBy == 'p3297 asc')"> ORDER BY "P3297" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3298 DESC'  or safeOrderBy == 'p3298 desc')"> ORDER BY "P3298" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3298 ASC'  or safeOrderBy == 'p3298 asc')"> ORDER BY "P3298" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3281 DESC'  or safeOrderBy == 'p3281 desc')"> ORDER BY "P3281" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3281 ASC'  or safeOrderBy == 'p3281 asc')"> ORDER BY "P3281" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3282 DESC'  or safeOrderBy == 'p3282 desc')"> ORDER BY "P3282" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3282 ASC'  or safeOrderBy == 'p3282 asc')"> ORDER BY "P3282" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3284 DESC'  or safeOrderBy == 'p3284 desc')"> ORDER BY "P3284" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3284 ASC'  or safeOrderBy == 'p3284 asc')"> ORDER BY "P3284" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3285 DESC'  or safeOrderBy == 'p3285 desc')"> ORDER BY "P3285" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3285 ASC'  or safeOrderBy == 'p3285 asc')"> ORDER BY "P3285" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3287 DESC'  or safeOrderBy == 'p3287 desc')"> ORDER BY "P3287" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3287 ASC'  or safeOrderBy == 'p3287 asc')"> ORDER BY "P3287" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3288 DESC'  or safeOrderBy == 'p3288 desc')"> ORDER BY "P3288" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3288 ASC'  or safeOrderBy == 'p3288 asc')"> ORDER BY "P3288" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3271 DESC'  or safeOrderBy == 'p3271 desc')"> ORDER BY "P3271" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3271 ASC'  or safeOrderBy == 'p3271 asc')"> ORDER BY "P3271" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3272 DESC'  or safeOrderBy == 'p3272 desc')"> ORDER BY "P3272" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3272 ASC'  or safeOrderBy == 'p3272 asc')"> ORDER BY "P3272" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3274 DESC'  or safeOrderBy == 'p3274 desc')"> ORDER BY "P3274" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3274 ASC'  or safeOrderBy == 'p3274 asc')"> ORDER BY "P3274" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3275 DESC'  or safeOrderBy == 'p3275 desc')"> ORDER BY "P3275" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P3275 ASC'  or safeOrderBy == 'p3275 asc')"> ORDER BY "P3275" ASC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P6911 DESC'  or safeOrderBy == 'p6911 desc')"> ORDER BY "P6911" DESC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P6911 ASC'  or safeOrderBy == 'p6911 asc')"> ORDER BY "P6911" ASC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P6912 DESC'  or safeOrderBy == 'p6912 desc')"> ORDER BY "P6912" DESC </when>
@@ -1300,20 +1321,20 @@
                 <when test="safeOrderBy != null and (safeOrderBy == 'P6925 ASC'  or safeOrderBy == 'p6925 asc')"> ORDER BY "P6925" ASC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P1 DESC'  or safeOrderBy == 'p1 desc')"> ORDER BY "P1" DESC </when>
                 <when test="safeOrderBy != null and (safeOrderBy == 'P1 ASC'  or safeOrderBy == 'p1 asc')"> ORDER BY "P1" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7508 DESC' )"> ORDER BY "p7508" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7508 ASC' )"> ORDER BY "p7508" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7509 DESC' )"> ORDER BY "p7509" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7509 ASC' )"> ORDER BY "p7509" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7510 DESC' )"> ORDER BY "p7510" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7510 ASC' )"> ORDER BY "p7510" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7511 DESC' )"> ORDER BY "p7511" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7511 ASC' )"> ORDER BY "p7511" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7512 DESC' )"> ORDER BY "p7512" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p7512 ASC' )"> ORDER BY "p7512" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p8508 DESC' )"> ORDER BY "p8508" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p8508 ASC' )"> ORDER BY "p8508" ASC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p8509 DESC' )"> ORDER BY "p8509" DESC </when>
-                <when test="safeOrderBy != null and (safeOrderBy == 'p8509 ASC' )"> ORDER BY "p8509" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7508 DESC'  or safeOrderBy == 'p7508 desc')"> ORDER BY "P7508" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7508 ASC'  or safeOrderBy == 'p7508 asc')"> ORDER BY "P7508" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7509 DESC'  or safeOrderBy == 'p7509 desc')"> ORDER BY "P7509" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7509 ASC'  or safeOrderBy == 'p7509 asc')"> ORDER BY "P7509" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7510 DESC'  or safeOrderBy == 'p7510 desc')"> ORDER BY "P7510" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7510 ASC'  or safeOrderBy == 'p7510 asc')"> ORDER BY "P7510" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7511 DESC'  or safeOrderBy == 'p7511 desc')"> ORDER BY "P7511" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7511 ASC'  or safeOrderBy == 'p7511 asc')"> ORDER BY "P7511" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7512 DESC'  or safeOrderBy == 'p7512 desc')"> ORDER BY "P7512" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P7512 ASC'  or safeOrderBy == 'p7512 asc')"> ORDER BY "P7512" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P8508 DESC'  or safeOrderBy == 'p8508 desc')"> ORDER BY "P8508" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P8508 ASC'  or safeOrderBy == 'p8508 asc')"> ORDER BY "P8508" ASC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P8509 DESC'  or safeOrderBy == 'p8509 desc')"> ORDER BY "P8509" DESC </when>
+                <when test="safeOrderBy != null and (safeOrderBy == 'P8509 ASC'  or safeOrderBy == 'p8509 asc')"> ORDER BY "P8509" ASC </when>
             </choose>
         </if>
     </sql>
@@ -1329,7 +1350,7 @@
     <!--说到这 sqlserver的分页实在是复杂 个人还是中意 mysql的 limit 不过为了兼容sqlserver各个版本 还是采取以下方式，不用offset了-->
     <sql id="pageParam">
         <if test="limit != null">
-            , ROW_NUMBER() OVER(<choose><when test="(safeOrderBy==null or safeOrderBy=='') and (notSafeOrderBy==null or notSafeOrderBy=='')"> ORDER BY "p7502" </when><otherwise><include refid="safeOrderBy"/><if test="notSafeOrderBy != null and notSafeOrderBy != ''"> ORDER BY ${notSafeOrderBy}</if></otherwise></choose>)  AS MC_ROW_NUM_
+            , ROW_NUMBER() OVER(<choose><when test="(safeOrderBy==null or safeOrderBy=='') and (notSafeOrderBy==null or notSafeOrderBy=='')"> ORDER BY "ID" </when><otherwise><include refid="safeOrderBy"/><if test="notSafeOrderBy != null and notSafeOrderBy != ''"> ORDER BY ${notSafeOrderBy}</if></otherwise></choose>)  AS MC_ROW_NUM_
         </if>
     </sql>
     <sql id="pageStart">
@@ -1342,4 +1363,208 @@
             ) MC_TMP_  WHERE <choose><when test="start != null">MC_ROW_NUM_ > #{start} AND MC_ROW_NUM_ <![CDATA[<=]]> #{start}+#{limit}</when><otherwise> MC_ROW_NUM_ <![CDATA[<=]]> #{limit}</otherwise></choose>
         </if>
     </sql>
+
+
+    <select id="getList" parameterType="String"  resultType="FluMjzReportForJava">
+        select
+        '45072695X'  p900
+        ,'四川大学华西第二医院' p6891
+        ,'' p686
+        ,'' p800
+        ,decode(b.patype,'O','01','02') p7501
+        ,b.papmino p7502
+        ,b.patientname  p4
+        ,decode(b.sex,'男','1','2')  P5
+        ,b.birthdate P6
+        ,substr(age,1,instr(age,'Y')-1) P7
+        ,decode(b.patidno,'','02',(case when substr(age,1,instr(age,'Y')-1) &lt;18 then '02' else '01' end)) P7503
+        ,decode(b.patidno,'','-',b.patidno) p13
+        ,'07' p7504
+        ,'1' p7505
+        ,substr(b.admdat,1,10) p7506
+        ,b.patzs  p7507
+        ,''  p321
+        ,b.iszd p322
+        ,'' p324
+        ,'' p325
+        ,'' p327
+        ,'' p328
+        ,'' p3291
+        ,'' p3292
+        ,'' p3294
+        ,'' p3295
+        ,'' p3297
+        ,'' p3298
+        ,'' p3281
+        ,'' p3282
+        ,'' p3284
+        ,'' p3285
+        ,'' p3287
+        ,'' p3288
+        ,'' p3271
+        ,'' p3272
+        ,'' p3274
+        ,'' p3275
+        ,'' P6911
+        ,'' P6912
+        ,'' P6913
+        ,'' P6914
+        ,'' P6915
+        ,'' P6916
+        ,'' P6917
+        ,'' P6918
+        ,'' P6919
+        ,'' P6920
+        ,'' P6921
+        ,'' P6922
+        ,'' P6923
+        ,'' P6924
+        ,'' P6925
+        ,decode(p1,'自费','7','9') P1
+        ,a.p7508
+        ,a.p7509
+        ,a.p7510
+        ,a.p7511
+        ,decode(p1,'自费',a.p7508,0) p7512
+        ,'2'  p8508
+        ,'' p8509
+        from  flu_mzj_charge a inner  join FLU_MZDATA b on a.admid=b.admid
+        where substr(b.admdat,1,10)>=to_char(sysdate-3,'yyyy-mm-dd')
+        <if test="limit != null"> LIMIT <if test="start != null">#{start},</if>#{limit} </if>
+    </select>
+
+    <insert id="setList" parameterType="FluMjzReportForJava" >
+    insert INTO HXEY.FLU_MJZ_REPORT_FOR_JAVA (
+        P900,
+        P6891,
+        P686,
+        P800,
+        P7501,
+        P7502,
+        P4,
+        P5,
+        P6,
+        P7,
+        P7503,
+        P13,
+        P7504,
+        P7505,
+        P7506,
+        P7507,
+        P321,
+        P322,
+        P324,
+        P325,
+        P327,
+        P328,
+        P3291,
+        P3292,
+        P3294,
+        P3295,
+        P3297,
+        P3298,
+        P3281,
+        P3282,
+        P3284,
+        P3285,
+        P3287,
+        P3288,
+        P3271,
+        P3272,
+        P3274,
+        P3275,
+        P6911,
+        P6912,
+        P6913,
+        P6914,
+        P6915,
+        P6916,
+        P6917,
+        P6918,
+        P6919,
+        P6920,
+        P6921,
+        P6922,
+        P6923,
+        P6924,
+        P6925,
+        P1,
+        P7508,
+        P7509,
+        P7510,
+        P7511,
+        P7512,
+        P8508,
+        P8509,
+    )
+    VALUES
+    <!--        <foreach collection="list" item="item" index="index" separator=",">-->
+    (
+        #{p900,jdbcType=VARCHAR},
+        #{p6891,jdbcType=VARCHAR},
+        #{p686,jdbcType=VARCHAR},
+        #{p800,jdbcType=VARCHAR},
+        #{p7501,jdbcType=VARCHAR},
+        #{p7502,jdbcType=VARCHAR},
+        #{p4,jdbcType=VARCHAR},
+        #{p5,jdbcType=VARCHAR},
+        #{p6,jdbcType=VARCHAR},
+        #{p7,jdbcType=VARCHAR},
+        #{p7503,jdbcType=VARCHAR},
+        #{p13,jdbcType=VARCHAR},
+        #{p7504,jdbcType=VARCHAR},
+        #{p7505,jdbcType=VARCHAR},
+        #{p7506,jdbcType=VARCHAR},
+        #{p7507,jdbcType=VARCHAR},
+        #{p321,jdbcType=VARCHAR},
+        #{p322,jdbcType=VARCHAR},
+        #{p324,jdbcType=VARCHAR},
+        #{p325,jdbcType=VARCHAR},
+        #{p327,jdbcType=VARCHAR},
+        #{p328,jdbcType=VARCHAR},
+        #{p3291,jdbcType=VARCHAR},
+        #{p3292,jdbcType=VARCHAR},
+        #{p3294,jdbcType=VARCHAR},
+        #{p3295,jdbcType=VARCHAR},
+        #{p3297,jdbcType=VARCHAR},
+        #{p3298,jdbcType=VARCHAR},
+        #{p3281,jdbcType=VARCHAR},
+        #{p3282,jdbcType=VARCHAR},
+        #{p3284,jdbcType=VARCHAR},
+        #{p3285,jdbcType=VARCHAR},
+        #{p3287,jdbcType=VARCHAR},
+        #{p3288,jdbcType=VARCHAR},
+        #{p3271,jdbcType=VARCHAR},
+        #{p3272,jdbcType=VARCHAR},
+        #{p3274,jdbcType=VARCHAR},
+        #{p3275,jdbcType=VARCHAR},
+        #{p6911,jdbcType=VARCHAR},
+        #{p6912,jdbcType=VARCHAR},
+        #{p6913,jdbcType=VARCHAR},
+        #{p6914,jdbcType=VARCHAR},
+        #{p6915,jdbcType=VARCHAR},
+        #{p6916,jdbcType=VARCHAR},
+        #{p6917,jdbcType=VARCHAR},
+        #{p6918,jdbcType=VARCHAR},
+        #{p6919,jdbcType=VARCHAR},
+        #{p6920,jdbcType=VARCHAR},
+        #{p6921,jdbcType=VARCHAR},
+        #{p6922,jdbcType=VARCHAR},
+        #{p6923,jdbcType=VARCHAR},
+        #{p6924,jdbcType=VARCHAR},
+        #{p6925,jdbcType=VARCHAR},
+        #{p1,jdbcType=VARCHAR},
+        #{p7508,jdbcType=VARCHAR},
+        #{p7509,jdbcType=VARCHAR},
+        #{p7510,jdbcType=VARCHAR},
+        #{p7511,jdbcType=VARCHAR},
+        #{p7512,jdbcType=VARCHAR},
+        #{p8508,jdbcType=VARCHAR},
+        #{p8509,jdbcType=VARCHAR}
+    )
+    </insert>
+
+    <select id="getCommonSumListFromDB"  resultType="FluMjzReportForJava">
+        select * from FLU_MJZ_REPORT_FOR_JAVA  WHERE date=#{date} ORDER BY zh DESC
+    </select>
 </mapper>

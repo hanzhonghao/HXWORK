@@ -6,7 +6,7 @@
 -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head  th:include="magicalcoder/v103/include/head :: commonHead('FLU_MJZ_REPORT_FOR_JAVA列表')"/>
+<head  th:include="magicalcoder/v103/include/head :: commonHead('FLU_MZDATA列表')"/>
 <body class="childrenBody">
 <!--请不要删除magicaldrag注释标签，可以配合布局器进行联动布局-->
 <!--magicaldrag-->
@@ -18,11 +18,8 @@
                     <div class="layui-card-body">
                         <form class="layui-form queryForm security_list_query_form">
                             <div class="layui-form-item">
-                                <div class="layui-inline security_list_query_param_id">
-                                    <input type="text" class="layui-input" data-name="id" name="idFirst" placeholder="id" />
-                                </div>
-                                <div class="layui-inline security_list_query_param_p7502">
-                                    <input type="text" class="layui-input" data-name="p7502" name="p7502First" placeholder="p7502" />
+                                <div class="layui-inline security_list_query_param_admid">
+                                    <input type="text" class="layui-input" data-name="admid" name="admidFirst" placeholder="ADMID" />
                                 </div>
                                 <div class="layui-inline security_list_query_operate_search">
                                     <a class="layui-btn  layui-btn-radius layui-btn-sm search_btn" data-type="reload"><i class="layui-icon layui-icon-search"></i>搜索</a>
@@ -48,7 +45,7 @@
                     </div>
                     <div class="layui-card-body">
                         <form class="layui-form tableForm security_list_table_form">
-                            <table class="security_list_table" id="newsList" lay-filter="newsListFilter" data-primary-fields="id"></table>
+                            <table class="security_list_table" id="newsList" lay-filter="newsListFilter" data-primary-fields="admid"></table>
                         </form>
                     </div>
                 </div>
@@ -62,6 +59,6 @@
         <a class="layui-btn layui-btn-danger layui-btn-xs security_list_table_operate_del" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>
     </script>
     <div th:replace="magicalcoder/v103/include/main-js :: commonMain" />
-    <script type="text/javascript"  th:src="@{/assets/admin/flu_mjz_report_for_java/list.js}"></script>
+    <script type="text/javascript"  th:src="@{/assets/admin/flu_mzdata/list.js}"></script>
 </body>
 </html>

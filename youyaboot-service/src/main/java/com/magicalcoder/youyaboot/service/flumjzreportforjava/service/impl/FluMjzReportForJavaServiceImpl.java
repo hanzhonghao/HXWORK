@@ -24,12 +24,32 @@ import java.math.*;
 */
 
 @Service
-public class FluMjzReportForJavaServiceImpl extends CommonServiceImpl<FluMjzReportForJava,String> implements FluMjzReportForJavaService,InitializingBean{
+public class FluMjzReportForJavaServiceImpl extends CommonServiceImpl<FluMjzReportForJava,Long> implements FluMjzReportForJavaService,InitializingBean{
     @Resource
     private FluMjzReportForJavaMapper fluMjzReportForJavaMapper;
 
     @Override
     public void afterPropertiesSet() {
         super.commonMapper = fluMjzReportForJavaMapper;
+    }
+
+    @Override
+    public List<FluMjzReportForJava> getList(Map<String, Object> query) {
+        List<FluMjzReportForJava> list= fluMjzReportForJavaMapper.getList(query);
+        return list;
+    }
+
+    @Override
+    public Boolean setList(List<FluMjzReportForJava> list) {
+        for(FluMjzReportForJava cs: list) {
+            fluMjzReportForJavaMapper.setList(cs);
+        }
+        return null;
+    }
+
+    @Override
+    public List<FluMjzReportForJava>  getModelListFromDB(Map<String, Object> query) {
+        List<FluMjzReportForJava> list = fluMjzReportForJavaMapper.getListFromDB(query);
+        return list;
     }
 }

@@ -6,48 +6,402 @@
 -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head  th:include="magicalcoder/v103/include/head :: commonHead('商品附件编辑')"/>
+<head  th:include="magicalcoder/v103/include/head :: commonHead('FLU_MJZ_REPORT_FOR_JAVA编辑')"/>
 
 <body class="childrenBody layui-hide">
 <!--请不要删除magicaldrag注释标签，可以配合布局器进行联动布局-->
 <!--magicaldrag-->
-    <div class="layui-fluid">
-        <div class="layui-card">
-            <div class="layui-card-header">
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">
 
-            </div>
-            <div class="layui-card-body">
-                <form class="layui-form">
-                    <div class="layui-form-item security_edit_form_param_fileId">
-                        <label class="layui-form-label">主键</label>
-                        <div class="layui-input-block">
-                            <input type="text" disabled="true" class="layui-input" name="fileId"  placeholder="主键自动生成，无需手动编辑,如果重置则变成增加数据"/>
-                        </div>
+        </div>
+        <div class="layui-card-body">
+            <form class="layui-form">
+                <div class="layui-form-item security_edit_form_param_id">
+                    <label class="layui-form-label">id</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="id"  placeholder="id请保证唯一，如果已存在则会覆盖，如果不填写则新增"/>
                     </div>
-                    <div class="layui-form-item security_edit_form_param_fileSrc">
-                        <label class="layui-form-label">文件地址</label>
-                        <div class="layui-input-block">
-                        <input type="text" class="layui-input" name="fileSrc" placeholder="文件地址" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
-                        </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p900">
+                    <label class="layui-form-label">p900</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p900" placeholder="p900" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
                     </div>
-                    <div class="layui-form-item security_edit_form_param_goodsId">
-                        <label class="layui-form-label">所属商品</label>
-                        <div class="layui-input-block">
-                        <select name="goodsId"  data-url="admin/goods_rest/search" data-id="id" data-text-fields="goodsName" class="magicalcoder-foreign-select2 layui-input" lay-ignore="true" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" data-value=""  placeholder="所属商品" data-limit="20"><option value=""></option></select>
-                        </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6891">
+                    <label class="layui-form-label">p6891</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6891" placeholder="p6891" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
                     </div>
-                    <div class="layui-form-item ">
-                        <div class="layui-input-block">
-                            <a class="layui-btn security_edit_form_operate_save" lay-submit="" lay-filter="save">立即提交</a>
-                            <button type="reset" class="layui-hide layui-btn layui-btn-primary" >重置</button>
-                        </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p686">
+                    <label class="layui-form-label">p686</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p686" placeholder="p686" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
                     </div>
-                </form>
-            </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p800">
+                    <label class="layui-form-label">p800</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p800" placeholder="p800" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7501">
+                    <label class="layui-form-label">p7501</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7501" placeholder="p7501" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7502">
+                    <label class="layui-form-label">p7502</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7502" placeholder="p7502" lay-verify="magicalCoderVerify|mc_required" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p4">
+                    <label class="layui-form-label">p4</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p4" placeholder="p4" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p5">
+                    <label class="layui-form-label">P5</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p5" placeholder="P5" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6">
+                    <label class="layui-form-label">P6</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6" placeholder="P6" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7">
+                    <label class="layui-form-label">P7</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7" placeholder="P7" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7503">
+                    <label class="layui-form-label">P7503</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7503" placeholder="P7503" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p13">
+                    <label class="layui-form-label">p13</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p13" placeholder="p13" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7504">
+                    <label class="layui-form-label">p7504</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7504" placeholder="p7504" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7505">
+                    <label class="layui-form-label">p7505</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7505" placeholder="p7505" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7506">
+                    <label class="layui-form-label">p7506</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7506" placeholder="p7506" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7507">
+                    <label class="layui-form-label">p7507</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7507" placeholder="p7507" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p321">
+                    <label class="layui-form-label">p321</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p321" placeholder="p321" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p322">
+                    <label class="layui-form-label">p322</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p322" placeholder="p322" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p324">
+                    <label class="layui-form-label">p324</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p324" placeholder="p324" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p325">
+                    <label class="layui-form-label">p325</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p325" placeholder="p325" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p327">
+                    <label class="layui-form-label">p327</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p327" placeholder="p327" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p328">
+                    <label class="layui-form-label">p328</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p328" placeholder="p328" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3291">
+                    <label class="layui-form-label">p3291</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3291" placeholder="p3291" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3292">
+                    <label class="layui-form-label">p3292</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3292" placeholder="p3292" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3294">
+                    <label class="layui-form-label">p3294</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3294" placeholder="p3294" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3295">
+                    <label class="layui-form-label">p3295</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3295" placeholder="p3295" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3297">
+                    <label class="layui-form-label">p3297</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3297" placeholder="p3297" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3298">
+                    <label class="layui-form-label">p3298</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3298" placeholder="p3298" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3281">
+                    <label class="layui-form-label">p3281</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3281" placeholder="p3281" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3282">
+                    <label class="layui-form-label">p3282</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3282" placeholder="p3282" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3284">
+                    <label class="layui-form-label">p3284</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3284" placeholder="p3284" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3285">
+                    <label class="layui-form-label">p3285</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3285" placeholder="p3285" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3287">
+                    <label class="layui-form-label">p3287</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3287" placeholder="p3287" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3288">
+                    <label class="layui-form-label">p3288</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3288" placeholder="p3288" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3271">
+                    <label class="layui-form-label">p3271</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3271" placeholder="p3271" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3272">
+                    <label class="layui-form-label">p3272</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3272" placeholder="p3272" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3274">
+                    <label class="layui-form-label">p3274</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3274" placeholder="p3274" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p3275">
+                    <label class="layui-form-label">p3275</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p3275" placeholder="p3275" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6911">
+                    <label class="layui-form-label">P6911</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6911" placeholder="P6911" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6912">
+                    <label class="layui-form-label">P6912</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6912" placeholder="P6912" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6913">
+                    <label class="layui-form-label">P6913</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6913" placeholder="P6913" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6914">
+                    <label class="layui-form-label">P6914</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6914" placeholder="P6914" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6915">
+                    <label class="layui-form-label">P6915</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6915" placeholder="P6915" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6916">
+                    <label class="layui-form-label">P6916</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6916" placeholder="P6916" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6917">
+                    <label class="layui-form-label">P6917</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6917" placeholder="P6917" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6918">
+                    <label class="layui-form-label">P6918</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6918" placeholder="P6918" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6919">
+                    <label class="layui-form-label">P6919</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6919" placeholder="P6919" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6920">
+                    <label class="layui-form-label">P6920</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6920" placeholder="P6920" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6921">
+                    <label class="layui-form-label">P6921</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6921" placeholder="P6921" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6922">
+                    <label class="layui-form-label">P6922</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6922" placeholder="P6922" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6923">
+                    <label class="layui-form-label">P6923</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6923" placeholder="P6923" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6924">
+                    <label class="layui-form-label">P6924</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6924" placeholder="P6924" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p6925">
+                    <label class="layui-form-label">P6925</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p6925" placeholder="P6925" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p1">
+                    <label class="layui-form-label">P1</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p1" placeholder="P1" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7508">
+                    <label class="layui-form-label">p7508</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7508" placeholder="p7508" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7509">
+                    <label class="layui-form-label">p7509</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7509" placeholder="p7509" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7510">
+                    <label class="layui-form-label">p7510</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7510" placeholder="p7510" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7511">
+                    <label class="layui-form-label">p7511</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7511" placeholder="p7511" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p7512">
+                    <label class="layui-form-label">p7512</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p7512" placeholder="p7512" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p8508">
+                    <label class="layui-form-label">p8508</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p8508" placeholder="p8508" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item security_edit_form_param_p8509">
+                    <label class="layui-form-label">p8509</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="p8509" placeholder="p8509" lay-verify="magicalCoderVerify" magicalcoder-verify="|minLength=0" value="" />
+                    </div>
+                </div>
+                <div class="layui-form-item ">
+                    <div class="layui-input-block">
+                        <a class="layui-btn security_edit_form_operate_save" lay-submit="" lay-filter="save">立即提交</a>
+                        <button type="reset" class="layui-hide layui-btn layui-btn-primary" >重置</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 <!--/magicaldrag-->
-    <div th:replace="magicalcoder/v103/include/main-js :: commonMain" />
-    <script type="text/javascript"  th:src="@{/assets/admin/goods_file/edit.js}"></script>
+<div th:replace="magicalcoder/v103/include/main-js :: commonMain" />
+<script type="text/javascript"  th:src="@{/assets/admin/flu_mjz_report_for_java/edit.js}"></script>
 </body>
 </html>

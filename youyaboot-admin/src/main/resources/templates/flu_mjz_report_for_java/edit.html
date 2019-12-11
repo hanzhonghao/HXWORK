@@ -18,6 +18,12 @@
             </div>
             <div class="layui-card-body">
                 <form class="layui-form">
+                    <div class="layui-form-item security_edit_form_param_id">
+                        <label class="layui-form-label">id</label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input" name="id"  placeholder="id请保证唯一，如果已存在则会覆盖，如果不填写则新增"/>
+                        </div>
+                    </div>
                     <div class="layui-form-item security_edit_form_param_p900">
                         <label class="layui-form-label">p900</label>
                         <div class="layui-input-block">
@@ -51,7 +57,7 @@
                     <div class="layui-form-item security_edit_form_param_p7502">
                         <label class="layui-form-label">p7502</label>
                         <div class="layui-input-block">
-                            <input type="text" class="layui-input" name="p7502"  placeholder="p7502请保证唯一，如果已存在则会覆盖，如果不填写则新增"/>
+                        <input type="text" class="layui-input" name="p7502" placeholder="p7502" lay-verify="magicalCoderVerify|mc_required" magicalcoder-verify="|minLength=0" value="" />
                         </div>
                     </div>
                     <div class="layui-form-item security_edit_form_param_p4">

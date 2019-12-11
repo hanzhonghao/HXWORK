@@ -20,7 +20,7 @@ import java.io.IOException;
  * function:
  */
 //@Service
-@WebFilter(urlPatterns = PermissionConstant.ADMIN_PREFIX+"*",filterName = "adminSecurityFilter")
+//@WebFilter(urlPatterns = PermissionConstant.ADMIN_PREFIX+"*",filterName = "adminSecurityFilter")
 public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor implements Filter {
 
     @Resource

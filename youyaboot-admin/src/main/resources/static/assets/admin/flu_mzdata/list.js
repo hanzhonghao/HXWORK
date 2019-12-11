@@ -1,15 +1,15 @@
 /**
- * 代码为自动生成 Created by www.magicalcoder.com
- * 软件作者：何栋宇 qq:709876443
- * 如果你改变了此类 read 请将此行删除
- * 欢迎加入官方QQ群:648595928
- */
+* 代码为自动生成 Created by www.magicalcoder.com
+* 软件作者：何栋宇 qq:709876443
+* 如果你改变了此类 read 请将此行删除
+* 欢迎加入官方QQ群:648595928
+*/
 //不要被如此多的代码唬住，读懂一个 其他的模块都明白了，之所以写这么多开放出来，主要是为了定制和维护性，您可以随意修改逻辑 适应你的业务场景
 ;!function(){
-    var $ = layui.jquery
+        var $ = layui.jquery
         ,layer = parent.layer === undefined ? layui.layer : top.layer
         ,table = layui.table;
-    var mc_children = youyaboot_all.mc_children
+        var mc_children = youyaboot_all.mc_children
         ,mc_constant = youyaboot_all.mc_constant
         ,mc_util = youyaboot_all.mc_util
         ,mc_rmp = youyaboot_all.mc_rmp
@@ -18,9 +18,9 @@
 
 // 子表 排序相关
     var CONFIG = {
-        tableNameRest:"FLU_MJZ_REPORT_FOR_JAVA_rest",
-        tableName:"FLU_MJZ_REPORT_FOR_JAVA",
-        moduleName:"FLU_MJZ_REPORT_FOR_JAVA",//sys_module的moduleName
+        tableNameRest:"FLU_MZDATA_rest",
+        tableName:"FLU_MZDATA",
+        moduleName:"FLU_MZDATA",//sys_module的moduleName
         form:{
         },
         event:{
@@ -30,10 +30,10 @@
         layTable : {//表格内容 到list.html查找即可明白
             elem : '#newsList',
             id : "newsListTable"
-        },
+         },
         //排序跟数据库实际字段名的映射
         sortMap:{
-            p7502:'p7502'
+            admid:'ADMID'
         }
     };
     //后端请求时候的表模块规则url
@@ -42,7 +42,7 @@
     //表格每一列配置
     var COLS = [[
         {type: "checkbox", /*fixed:"left",*/ width:50},//全选
-        {field: 'p7502', title: 'p7502', minWidth:100, align:"center",sort:true},
+                {field: 'admid', title: 'ADMID', minWidth:100, align:"center",sort:true},
         {title: '操作', minWidth:250, templet:'#newsListOperateTemplate',/*fixed:"right",*/align:"center"}//操作 到list.html页面查找模板对应的html
     ]];
     var obj = {
@@ -73,9 +73,9 @@
                                 mc_rmp.paintBody(CONFIG.moduleName,function () {//权限判断
                                     //禁用一些外键字段 当更多信息场景时才会触发
                                     mc_children.disabledTableParentArea();
-                                    //laytable中有很多控件需要初始化 比如日期等
+        //laytable中有很多控件需要初始化 比如日期等
                                     mc_layui_component.bindMagicalCoderLayUiComponentFromTable(CONFIG,function(){_this.refreshTableFromCurrentPage()})
-                                    //每一行的操作条目事件
+        //每一行的操作条目事件
                                     _this.tableOperateEvent()
                                 })
                             }else {

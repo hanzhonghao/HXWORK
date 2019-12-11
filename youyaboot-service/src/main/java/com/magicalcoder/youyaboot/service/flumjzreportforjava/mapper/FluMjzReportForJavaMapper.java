@@ -12,6 +12,11 @@ import java.math.*;
 * 欢迎加入官方QQ群:648595928
 */
 
-public interface FluMjzReportForJavaMapper extends ICommonMapper<FluMjzReportForJava,String>{
+public interface FluMjzReportForJavaMapper extends ICommonMapper<FluMjzReportForJava,Long>{
 
+    List<FluMjzReportForJava> getList(Map query);
+
+    Boolean setList(FluMjzReportForJava list);
+
+    List<FluMjzReportForJava> getListFromDB(Map<String, Object> query);
 }

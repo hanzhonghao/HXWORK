@@ -1,14 +1,14 @@
 /**
- * 代码为自动生成 Created by www.magicalcoder.com
- * 软件作者：何栋宇 qq:709876443
- * 如果你改变了此类 read 请将此行删除
- * 欢迎加入官方QQ群:648595928
- */
+* 代码为自动生成 Created by www.magicalcoder.com
+* 软件作者：何栋宇 qq:709876443
+* 如果你改变了此类 read 请将此行删除
+* 欢迎加入官方QQ群:648595928
+*/
 ;!function(){
-    var $ = layui.jquery
+        var $ = layui.jquery
         ,layer = parent.layer === undefined ? layui.layer : top.layer
         ,form = layui.form;
-    var mc_layui_component=youyaboot_all.mc_layui_component
+        var mc_layui_component=youyaboot_all.mc_layui_component
         ,mc_util = youyaboot_all.mc_util
         ,mc_children = youyaboot_all.mc_children
         ,mc_verify = youyaboot_all.mc_verify
@@ -16,9 +16,9 @@
         ,mc_rmp  = youyaboot_all.mc_rmp
     ;
     var common_config = {
-        tableNameRest:"FLU_MJZ_REPORT_FOR_JAVA_rest",
-        tableName:"FLU_MJZ_REPORT_FOR_JAVA",
-        moduleName:"FLU_MJZ_REPORT_FOR_JAVA",//sys_module的moduleName
+        tableNameRest:"FLU_MZDATA_rest",
+        tableName:"FLU_MZDATA",
+        moduleName:"FLU_MZDATA",//sys_module的moduleName
         form:{
         },
         event:{
