@@ -52,4 +52,11 @@ public class FluMjzReportForJavaServiceImpl extends CommonServiceImpl<FluMjzRepo
         List<FluMjzReportForJava> list = fluMjzReportForJavaMapper.getListFromDB(query);
         return list;
     }
+
+
+    @Override
+    public List<FluMjzReportForJava> getListForExcel(Map<String, Object> query) {
+        List<FluMjzReportForJava> list= fluMjzReportForJavaMapper.getList(query);
+        return list;
+    }
 }

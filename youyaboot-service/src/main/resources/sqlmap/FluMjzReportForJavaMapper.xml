@@ -1433,8 +1433,76 @@
         <if test="limit != null"> LIMIT <if test="start != null">#{start},</if>#{limit} </if>
     </select>
 
+    <select id="getListForExcel" parameterType="String"  resultType="FluMjzReportForJava">
+        select
+        '45072695X'  p900
+        ,'四川大学华西第二医院' p6891
+        ,'' p686
+        ,'' p800
+        ,decode(b.patype,'O','01','02') p7501
+        ,b.papmino p7502
+        ,b.patientname  p4
+        ,decode(b.sex,'男','1','2')  P5
+        ,b.birthdate P6
+        ,substr(age,1,instr(age,'Y')-1) P7
+        ,decode(b.patidno,'','02',(case when substr(age,1,instr(age,'Y')-1) &lt;18 then '02' else '01' end)) P7503
+        ,decode(b.patidno,'','-',b.patidno) p13
+        ,'07' p7504
+        ,'1' p7505
+        ,substr(b.admdat,1,10) p7506
+        ,b.patzs  p7507
+        ,''  p321
+        ,b.iszd p322
+        ,'' p324
+        ,'' p325
+        ,'' p327
+        ,'' p328
+        ,'' p3291
+        ,'' p3292
+        ,'' p3294
+        ,'' p3295
+        ,'' p3297
+        ,'' p3298
+        ,'' p3281
+        ,'' p3282
+        ,'' p3284
+        ,'' p3285
+        ,'' p3287
+        ,'' p3288
+        ,'' p3271
+        ,'' p3272
+        ,'' p3274
+        ,'' p3275
+        ,'' P6911
+        ,'' P6912
+        ,'' P6913
+        ,'' P6914
+        ,'' P6915
+        ,'' P6916
+        ,'' P6917
+        ,'' P6918
+        ,'' P6919
+        ,'' P6920
+        ,'' P6921
+        ,'' P6922
+        ,'' P6923
+        ,'' P6924
+        ,'' P6925
+        ,decode(p1,'自费','7','9') P1
+        ,a.p7508
+        ,a.p7509
+        ,a.p7510
+        ,a.p7511
+        ,decode(p1,'自费',a.p7508,0) p7512
+        ,'2'  p8508
+        ,'' p8509
+        from  flu_mzj_charge a inner join FLU_MZDATA b on a.admid=b.admid
+        where substr(b.admdat,1,10)>=to_char(sysdate-3,'yyyy-mm-dd')
+    </select>
+
     <insert id="setList" parameterType="FluMjzReportForJava" >
     insert INTO HXEY.FLU_MJZ_REPORT_FOR_JAVA (
+        ID,
         P900,
         P6891,
         P686,
@@ -1495,11 +1563,11 @@
         P7511,
         P7512,
         P8508,
-        P8509,
+        P8509
     )
     VALUES
-    <!--        <foreach collection="list" item="item" index="index" separator=",">-->
     (
+        #{id,jdbcType=BIGINT},
         #{p900,jdbcType=VARCHAR},
         #{p6891,jdbcType=VARCHAR},
         #{p686,jdbcType=VARCHAR},

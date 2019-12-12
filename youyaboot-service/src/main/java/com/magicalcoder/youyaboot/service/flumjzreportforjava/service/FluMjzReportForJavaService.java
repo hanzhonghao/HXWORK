@@ -16,6 +16,8 @@ public interface FluMjzReportForJavaService extends ICommonService<FluMjzReportF
 
     List<FluMjzReportForJava> getList(Map<String, Object> query);
 
+    List<FluMjzReportForJava> getListForExcel(Map<String, Object> query);
+
     Boolean setList(List<FluMjzReportForJava> list);
 
     List<FluMjzReportForJava> getModelListFromDB(Map<String, Object> query);

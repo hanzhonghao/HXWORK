@@ -16,6 +16,8 @@ public interface FluMjzReportForJavaMapper extends ICommonMapper<FluMjzReportFor
 
     List<FluMjzReportForJava> getList(Map query);
 
+    List<FluMjzReportForJava> getListForExcel(Map query);
+
     Boolean setList(FluMjzReportForJava list);
 
     List<FluMjzReportForJava> getListFromDB(Map<String, Object> query);

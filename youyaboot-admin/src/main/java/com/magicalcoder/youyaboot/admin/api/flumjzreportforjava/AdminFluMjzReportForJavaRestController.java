@@ -49,6 +49,9 @@ public class AdminFluMjzReportForJavaRestController extends CommonRestController
         query.put("p7502First",coverBlankToNull(p7502First));
         Integer count = fluMjzReportForJavaService.getModelListCount(query);
         List<FluMjzReportForJava> list = fluMjzReportForJavaService.getList(query);
+//        for (int i=1;i<=list.size();i++){
+//            list.get(i-1).setId((long)i);
+//        }
 //        fluMjzReportForJavaService.setList(list);
         if(StringUtil.isBlank(safeOrderBy)){
             query.put("notSafeOrderBy","id desc,p7502 desc");
@@ -60,18 +63,17 @@ public class AdminFluMjzReportForJavaRestController extends CommonRestController
             query.put("start",(page - 1) * limit);query.put("limit",limit);
             return new ResponseMsg(count,list);
         }else if(queryType == QUERY_TYPE_EXPORT_EXCEL){
-            query.put("start",(page - 1) * limit);query.put("limit",limit);
+//            query.put("start",(page - 1) * limit);query.put("limit",limit);
             String fileName = "flu Mjz Report For Java";
             // 列名
             String columnNames[] = {"编号","P900","P6891","P686","P800","P7501","P7502","P4","P5","P6","P7","P7503","P13","P7504","P7505","P7506","P7507","P321","P322","P324","P325","P327","P328","P3291","P3292","P3294","P3295","P3297","P3298","P3281","P3282","P3284","P3285","P3287","P3288","P3271","P3272","P3274","P3275","P6911","P6912","P6913","P6914","P6915","P6916","P6917","P6918","P6919","P6920","P6921","P6922","P6923","P6924","P6925","P1","P7508","P7509","P7510","P7511","P7512","P8508","P8509"};
             // map中的key
             String keys[] = { "numbers", "P900","P6891","P686","P800","P7501","P7502","P4","P5","P6","P7","P7503","P13","P7504","P7505","P7506","P7507","P321","P322","P324","P325","P327","P328","P3291","P3292","P3294","P3295","P3297","P3298","P3281","P3282","P3284","P3285","P3287","P3288","P3271","P3272","P3274","P3275","P6911","P6912","P6913","P6914","P6915","P6916","P6917","P6918","P6919","P6920","P6921","P6922","P6923","P6924","P6925","P1","P7508","P7509","P7510","P7511","P7512","P8508","P8509"};
             try {
-                List<FluMjzReportForJava> commonSumList1 = fluMjzReportForJavaService.getList(query);
+                List<FluMjzReportForJava> commonSumList1 = fluMjzReportForJavaService.getListForExcel(query);
                 for (int i=1;i<=commonSumList1.size();i++){
                     commonSumList1.get(i-1).setNumbers(i);
                 }
-
                 ExportPOIUtils.start_download(response, fileName, commonSumList1, columnNames, keys);
             } catch (IOException e) {
 
